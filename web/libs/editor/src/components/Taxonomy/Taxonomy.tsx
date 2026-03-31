@@ -191,9 +191,9 @@ const Item: React.FC<RowProps> = ({ style, item, dimensionCallback, maxWidth, is
   const arrowStyle = !isLeaf ? { transform: isOpen ? "rotate(180deg)" : "rotate(90deg)" } : { display: "none" };
 
   const title = onlyLeafsAllowed
-    ? "Only leaf nodes allowed"
+    ? "仅允许选择叶子节点"
     : limitReached
-      ? `Maximum ${maxUsages} items already selected`
+      ? `最多只能选择 ${maxUsages} 个项目`
       : undefined;
 
   const setIndeterminate = useCallback(
@@ -288,11 +288,11 @@ const Item: React.FC<RowProps> = ({ style, item, dimensionCallback, maxWidth, is
                                 addChild(id);
                               }}
                             >
-                              Add Inside
+                              添加到下级
                             </Menu.Item>
                             {item.row.origin === "session" && (
                               <Menu.Item key="delete" className={styles.taxonomy__action} onClick={onDelete}>
-                                Delete
+                                删除
                               </Menu.Item>
                             )}
                           </Menu>
@@ -413,7 +413,7 @@ const TaxonomyDropdown = ({ show, flatten, items, dropdownRef, isEditable }: Tax
         autoComplete="off"
         className={styles.taxonomy__search}
         name="taxonomy__search"
-        placeholder="Search..."
+        placeholder="搜索..."
         onInput={onInput}
         ref={inputRef}
       />
@@ -441,9 +441,9 @@ const TaxonomyDropdown = ({ show, flatten, items, dropdownRef, isEditable }: Tax
                 look="string"
                 type="button"
                 onClick={addInside}
-                aria-label="Add new label"
+                aria-label="添加新标签"
               >
-                Add
+                添加
               </Button>
             </div>
           ) : null}
@@ -572,7 +572,7 @@ const Taxonomy = ({
         <SelectedList isEditable={isEditable} flatItems={flatten} />
         <div className={["htx-taxonomy", styles.taxonomy, isOpenClassName].join(" ")} ref={taxonomyRef}>
           <span onClick={() => setOpen((val) => !val)}>
-            {options.placeholder || "Click to add..."}
+            {options.placeholder || "点击添加..."}
             <IconChevron stroke="#09f" />
           </span>
           <TaxonomyDropdown

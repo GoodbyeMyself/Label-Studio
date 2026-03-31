@@ -137,8 +137,8 @@ const renderEmptyStateLayout = ({
 // Storage provider icons component
 const StorageProviderIcons = () => (
   <div className="flex items-center justify-center gap-base mb-wide" data-testid="dm-storage-provider-icons">
-    <Tooltip title="Amazon S3">
-      <div className="flex items-center justify-center p-2" aria-label="Amazon S3">
+    <Tooltip title="Amazon S3 存储">
+      <div className="flex items-center justify-center p-2" aria-label="Amazon S3 存储">
         <IconCloudProviderS3 width={32} height={32} className="text-neutral-content-subtler" />
       </div>
     </Tooltip>
@@ -147,13 +147,13 @@ const StorageProviderIcons = () => (
         <IconCloudProviderGCS width={32} height={32} className="text-neutral-content-subtler" />
       </div>
     </Tooltip>
-    <Tooltip title="Azure Blob Storage">
-      <div className="flex items-center justify-center p-2" aria-label="Azure Blob Storage">
+    <Tooltip title="Azure Blob 存储">
+      <div className="flex items-center justify-center p-2" aria-label="Azure Blob 存储">
         <IconCloudProviderAzure width={32} height={32} className="text-neutral-content-subtler" />
       </div>
     </Tooltip>
-    <Tooltip title="Redis Storage">
-      <div className="flex items-center justify-center p-2" aria-label="Redis Storage">
+    <Tooltip title="Redis 存储">
+      <div className="flex items-center justify-center p-2" aria-label="Redis 存储">
         <IconCloudProviderRedis width={32} height={32} className="text-neutral-content-subtler" />
       </div>
     </Tooltip>

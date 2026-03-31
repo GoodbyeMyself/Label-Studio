@@ -128,7 +128,7 @@ export const DatePicker = ({
           />
           {selectRange && (
             <>
-              <div className={cn("datepicker").elem("separator").toClassName()}>and</div>
+              <div className={cn("datepicker").elem("separator").toClassName()}>到</div>
               <Input
                 size={size}
                 value={endDate || ""}

@@ -1,5 +1,5 @@
 import { IconQuestionOutline, IconSettings } from "@humansignal/icons";
-import { Tooltip, Badge } from "@humansignal/ui";
+import { Tooltip, Badge, EnterpriseBadge } from "@humansignal/ui";
 import { inject } from "mobx-react";
 import { getRoot } from "mobx-state-tree";
 import { useCallback, useMemo } from "react";
@@ -200,9 +200,9 @@ export const DataView = injector(
         if (store.SDK.type === "DE" && ["canceled", "failed"].includes(datasetStatusID)) {
           return (
             <div className={cn("syncInProgress").toClassName()}>
-              <h3 className={cn("syncInProgress").elem("title").toClassName()}>Failed to sync data</h3>
+              <h3 className={cn("syncInProgress").elem("title").toClassName()}>数据同步失败</h3>
               <div className={cn("syncInProgress").elem("text").toClassName()}>
-                Check your storage settings. You may need to recreate this dataset
+                请检查你的存储设置。你可能需要重新创建这个数据集
               </div>
             </div>
           );
@@ -214,9 +214,9 @@ export const DataView = injector(
         ) {
           return (
             <div className={cn("syncInProgress").toClassName()}>
-              <h3 className={cn("syncInProgress").elem("title").toClassName()}>Nothing found</h3>
+              <h3 className={cn("syncInProgress").elem("title").toClassName()}>未找到内容</h3>
               <div className={cn("syncInProgress").elem("text").toClassName()}>
-                Try adjusting the filter or similarity search parameters
+                请尝试调整筛选条件或相似度搜索参数
               </div>
             </div>
           );
@@ -225,10 +225,10 @@ export const DataView = injector(
           return (
             <div className={cn("syncInProgress").toClassName()}>
               <h3 className={cn("syncInProgress").elem("title").toClassName()}>
-                Hang tight! Records are syncing in the background
+                请稍候，记录正在后台同步
               </h3>
               <div className={cn("syncInProgress").elem("text").toClassName()}>
-                Press the button below to see any synced records
+                点击下方按钮查看已同步的记录
               </div>
               <Button
                 size="small"
@@ -241,7 +241,7 @@ export const DataView = injector(
                   await store.currentView?.reload();
                 }}
               >
-                Refresh
+                刷新
               </Button>
             </div>
           );
