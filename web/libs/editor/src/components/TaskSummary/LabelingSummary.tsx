@@ -337,14 +337,14 @@ export const LabelingSummary = observer(({ hideInfo, annotations: all, controls,
   const annotations: AnnotationSummary[] = all.map((annotation) => ({
     id: annotation.pk,
     type: annotation.type,
-    user: hideInfo ? { email: currentUser?.id === annotation.user?.id ? "Me" : "User" } : annotation.user,
+    user: hideInfo ? { email: currentUser?.id === annotation.user?.id ? "我" : "用户" } : annotation.user,
     createdBy:
       annotation.type === "prediction"
         ? annotation.createdBy
         : hideInfo
           ? currentUser?.id === annotation.user?.id
-            ? "Me"
-            : "User"
+            ? "我"
+            : "用户"
           : userDisplayName(annotation.user as Record<string, string>),
     results:
       annotation.type === "prediction"
@@ -404,7 +404,7 @@ export const LabelingSummary = observer(({ hideInfo, annotations: all, controls,
       }),
     );
     columns.unshift({
-      header: "Annotator",
+      header: "标注员",
       accessorKey: "id",
       size: columnWidths.id || 180,
       minSize: 150,
