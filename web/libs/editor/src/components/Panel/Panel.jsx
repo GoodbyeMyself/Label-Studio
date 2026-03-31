@@ -40,7 +40,7 @@ export default observer(({ store }) => {
             ev.preventDefault();
           }}
         >
-          Undo
+          撤销
           {store.settings.enableHotkeys && store.settings.enableTooltips && <Hint>[ Ctrl+z ]</Hint>}
         </Button>
         <Button
@@ -52,7 +52,7 @@ export default observer(({ store }) => {
             ev.preventDefault();
           }}
         >
-          Redo
+          重做
         </Button>
         <Button
           type="ghost"
@@ -62,7 +62,7 @@ export default observer(({ store }) => {
             history && history.reset();
           }}
         >
-          Reset
+          重置
         </Button>
         {store.setPrelabeling && (
           <Button
@@ -72,7 +72,7 @@ export default observer(({ store }) => {
               store.resetPrelabeling();
             }}
           >
-            Reset Prelabeling
+            重置预标注
           </Button>
         )}
         {store.hasInterface("debug") && (
@@ -91,7 +91,7 @@ export default observer(({ store }) => {
               store.toggleDescription();
             }}
           >
-            Hide Instructions
+            隐藏说明
           </Button>
         )}
         {store.description && !store.showingDescription && (
@@ -101,7 +101,7 @@ export default observer(({ store }) => {
               store.toggleDescription();
             }}
           >
-            Instructions
+            说明
           </Button>
         )}
 
