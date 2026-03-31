@@ -1,0 +1,59 @@
+services:
+  nginx:
+    build: .
+    image: label-studio-local:prod
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "8080:8085"
+    environment:
+      LABEL_STUDIO_HOST: "${LABEL_STUDIO_HOST}"
+      NGINX_ERROR_LOG_LEVEL: "warn"
+    volumes:
+      - ls_data:/label-studio/data:rw
+    command: nginx
+
+  app:
+    build: .
+    image: label-studio-local:prod
+    restart: unless-stopped
+    depends_on:
+      - db
+    expose:
+      - "8000"
+    environment:
+      DJANGO_DB: "default"
+      POSTGRE_NAME: "${POSTGRE_NAME}"
+      POSTGRE_USER: "${POSTGRE_USER}"
+      POSTGRE_PASSWORD: "${POSTGRE_PASSWORD}"
+      POSTGRE_PORT: "5432"
+      POSTGRE_HOST: "db"
+      LABEL_STUDIO_HOST: "${LABEL_STUDIO_HOST}"
+      LABEL_STUDIO_ALLOWED_HOSTS: "${LABEL_STUDIO_ALLOWED_HOSTS}"
+      LABEL_STUDIO_CSRF_TRUSTED_ORIGINS: "${LABEL_STUDIO_CSRF_TRUSTED_ORIGINS}"
+      SECRET_KEY: "${SECRET_KEY}"
+      DEBUG: "${DEBUG}"
+      JSON_LOG: "${JSON_LOG}"
+      LOG_LEVEL: "${LOG_LEVEL}"
+      CORS_ALLOW_ALL_ORIGINS: "${CORS_ALLOW_ALL_ORIGINS}"
+      DISABLE_SIGNUP_WITHOUT_LINK: "${DISABLE_SIGNUP_WITHOUT_LINK}"
+      SESSION_COOKIE_SECURE: "${SESSION_COOKIE_SECURE}"
+      CSRF_COOKIE_SECURE: "${CSRF_COOKIE_SECURE}"
+    volumes:
+      - ls_data:/label-studio/data:rw
+    command: label-studio-uwsgi
+
+  db:
+    image: pgautoupgrade/pgautoupgrade:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${POSTGRE_NAME}"
+      POSTGRES_USER: "${POSTGRE_USER}"
+      POSTGRES_PASSWORD: "${POSTGRE_PASSWORD}"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  ls_data: {}
+  pg_data: {}
