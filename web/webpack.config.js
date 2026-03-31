@@ -36,6 +36,11 @@ const BUILD = {
   NO_MINIMIZE: isDevelopment || !!process.env.BUILD_NO_MINIMIZATION,
 };
 
+const isCssLoader = (loader) => typeof loader === "string" && /[\\/]css-loader[\\/]/.test(loader);
+
+const hasCssLoader = (oneOfRule) =>
+  Array.isArray(oneOfRule?.use) && oneOfRule.use.some((use) => isCssLoader(use.loader));
+
 const plugins = [
   new DefinePlugin({
     "process.env.CSS_PREFIX": JSON.stringify(css_prefix),
@@ -157,7 +162,7 @@ module.exports = composePlugins(
         );
 
         const innerTest = oneOfRule.test?.toString() ?? "";
-        const cssLoader = oneOfRule.use.find((use) => use.loader?.includes("/css-loader/"));
+        const cssLoader = oneOfRule.use.find((use) => isCssLoader(use.loader));
 
         if (innerTest.includes("module") && cssLoader?.options) {
           cssLoader.options.modules = {
@@ -171,9 +176,13 @@ module.exports = composePlugins(
 
       const insertions = [];
       rule.oneOf.forEach((oneOfRule, idx) => {
-        if (!oneOfRule.test || !oneOfRule.use) return;
-        const t = oneOfRule.test.toString();
-        if (/^\/\\\.css\$\/$/.test(t) && oneOfRule.use.some((u) => u.loader?.includes("/css-loader/"))) {
+        if (!oneOfRule.test || !hasCssLoader(oneOfRule)) return;
+
+        const testString = oneOfRule.test.toString();
+        const isPlainCssRule = testString === "/\\.css$/";
+        const isModuleCssRule = testString.includes("\\.module\\.");
+
+        if (isPlainCssRule && !isModuleCssRule) {
           insertions.push(idx);
         }
       });
@@ -183,7 +192,7 @@ module.exports = composePlugins(
         const template = rule.oneOf[idx];
         const prefixUse = template.use.map((u) => {
           if (typeof u === "string") return u;
-          if (u.loader?.includes("/css-loader/")) {
+          if (isCssLoader(u.loader)) {
             return {
               ...u,
               options: {
