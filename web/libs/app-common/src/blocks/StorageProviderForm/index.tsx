@@ -45,45 +45,33 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
       modal?.hide();
     };
 
-    // Initialize providers first
     useEffect(() => {
       Object.entries(providers).forEach(([name, config]) => {
         addProvider(name, config);
       });
     }, [providers]);
 
-    // Determine if we're in edit mode
     const isEditMode = Boolean(storage);
-
-    // Define steps based on edit mode and target
-    const effectiveTarget = target || "import"; // Default to import if target is undefined
+    const effectiveTarget = target || "import";
     const steps = isEditMode
       ? [
           {
-            title: "Configure Connection",
+            title: "配置连接",
             schema: getProviderSchema(type || "s3", isEditMode, effectiveTarget),
           },
-          // Only include preview and review steps for import storages
-          ...(effectiveTarget === "import"
-            ? [{ title: "Import Settings & Preview" }, { title: "Review & Confirm" }]
-            : []),
+          ...(effectiveTarget === "import" ? [{ title: "导入设置与预览" }, { title: "检查并确认" }] : []),
         ]
       : [
-          { title: "Select Provider", schema: step1Schema },
+          { title: "选择提供商", schema: step1Schema },
           {
-            title: "Configure Connection",
+            title: "配置连接",
             schema: getProviderSchema(type || "s3", isEditMode, effectiveTarget),
           },
-          // Only include preview and review steps for import storages
-          ...(effectiveTarget === "import"
-            ? [{ title: "Import Settings & Preview" }, { title: "Review & Confirm" }]
-            : []),
+          ...(effectiveTarget === "import" ? [{ title: "导入设置与预览" }, { title: "检查并确认" }] : []),
         ];
 
-    // Update steps when provider changes to ensure schema is current
     const [currentSteps, setCurrentSteps] = useState(steps);
 
-    // Initialize form state management
     const {
       formState,
       setFormState,
@@ -104,7 +92,6 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
 
     const { currentStep, formData } = formState;
 
-    // Update type when formData.provider changes in edit mode
     useEffect(() => {
       if (isEditMode && formData.provider && formData.provider !== type) {
         setType(formData.provider);
@@ -116,29 +103,22 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
       const newSteps = isEditMode
         ? [
             {
-              title: "Configure Connection",
+              title: "配置连接",
               schema: getProviderSchema(formData.provider || type || "s3", isEditMode, effectiveTarget),
             },
-            // Only include preview and review steps for import storages
-            ...(effectiveTarget === "import"
-              ? [{ title: "Import Settings & Preview" }, { title: "Review & Confirm" }]
-              : []),
+            ...(effectiveTarget === "import" ? [{ title: "导入设置与预览" }, { title: "检查并确认" }] : []),
           ]
         : [
-            { title: "Select Provider", schema: step1Schema },
+            { title: "选择提供商", schema: step1Schema },
             {
-              title: "Configure Connection",
+              title: "配置连接",
               schema: getProviderSchema(formData.provider || type || "s3", isEditMode, effectiveTarget),
             },
-            // Only include preview and review steps for import storages
-            ...(effectiveTarget === "import"
-              ? [{ title: "Import Settings & Preview" }, { title: "Review & Confirm" }]
-              : []),
+            ...(effectiveTarget === "import" ? [{ title: "导入设置与预览" }, { title: "检查并确认" }] : []),
           ];
       setCurrentSteps(newSteps);
     }, [formData.provider, type, isEditMode, target]);
 
-    // Handle modal hide (including Escape key)
     useEffect(() => {
       if (onHide) {
         const handleModalHide = () => {
@@ -148,15 +128,9 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
           setType("s3");
           onHide();
         };
-
-        // Set up the handler but don't call it immediately
-        // The handler will be called when the modal is actually hidden
       }
     }, [onHide, resetForm]);
 
-    // Sync backend validation_errors to current form errors so inputs show the exact API message
-    // instead of surfacing a global modal. The API hook normalizes DRF's shape into
-    // { fieldName: "message" }, which we merge into our stateful error map.
     const handleServerValidationErrors = useCallback(
       (serverErrors: Record<string, string>) => {
         if (!serverErrors || Object.keys(serverErrors).length === 0) return;
@@ -168,7 +142,6 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
       [setErrors],
     );
 
-    // Initialize API hooks
     const { testConnectionMutation, createStorageMutation, saveStorageMutation, loadFilesPreviewMutation, action } =
       useStorageApi({
         target,
@@ -186,7 +159,6 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
         },
       });
 
-    // Handle provider selection
     const handleSelectChange = (name: string, value: string) => {
       setType(value);
       handleProviderFieldChange(name, value, () => {
@@ -195,7 +167,6 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
       });
     };
 
-    // Handle form navigation
     const handleStepClick = (stepIndex: number) => {
       if (isEditMode || stepIndex <= currentStep) {
         setCurrentStep(stepIndex);
@@ -224,7 +195,6 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
       }
     };
 
-    // Handle API operations
     const testStorageConnection = async () => {
       if (!validateEntireForm()) return;
       testConnectionMutation.mutate(formData, {
@@ -254,11 +224,10 @@ export const StorageProviderForm = forwardRef<unknown, StorageProviderFormProps>
       });
     };
 
-    // Format file size helper
     const formatSize = (bytes: number) => {
-      if (bytes === 0) return "0 Bytes";
+      if (bytes === 0) return "0 字节";
       const k = 1024;
-      const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB"];
+      const sizes = ["字节", "KB", "MB", "GB", "TB", "PB"];
       const i = Math.floor(Math.log(bytes) / Math.log(k));
       return `${Number.parseFloat((bytes / k ** i).toFixed(2))} ${sizes[i]}`;
     };

@@ -90,12 +90,18 @@ export const Annotations = observer(({ store, annotationStore, commentStore }) =
     return null;
   };
 
+  const getEntityTypeLabel = (type) => {
+    if (type === "prediction") return "预测";
+    if (type === "annotation") return "标注";
+    return type;
+  };
+
   const renderAnnotation = (ent, i) => {
     return (
       <Annotation
         key={`${ent.pk ?? ent.id}${ent.type}`}
         entity={ent}
-        aria-label={`${ent.type} ${i + 1}`}
+        aria-label={`${getEntityTypeLabel(ent.type)} ${i + 1}`}
         selected={ent === annotationStore.selected}
         onClick={(e) => {
           e.preventDefault();
@@ -140,7 +146,7 @@ export const Annotations = observer(({ store, annotationStore, commentStore }) =
       <div className={cn("annotations-list").toClassName()} ref={dropdownRef}>
         <div className={cn("annotations-list").elem("selected").toClassName()}>
           <Annotation
-            aria-label="Annotations List Toggle"
+            aria-label="切换标注列表"
             entity={annotationStore.selected}
             onClick={(e) => {
               e.stopPropagation();
@@ -184,14 +190,14 @@ const CreateAnnotation = observer(({ annotationStore, onClick }) => {
   return (
     <div
       className={cn("annotations-list").elem("create").toClassName()}
-      aria-label="Create Annotation"
+      aria-label="创建标注"
       onClick={onCreateAnnotation}
     >
       <Space size="small">
         <Userpic className={cn("annotations-list").elem("userpic").mod({ prediction: true }).toClassName()}>
           <IconPlusCircle />
         </Userpic>
-        Create Annotation
+        创建标注
       </Space>
     </div>
   );

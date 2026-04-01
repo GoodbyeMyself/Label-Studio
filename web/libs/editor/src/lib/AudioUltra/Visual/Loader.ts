@@ -91,10 +91,10 @@ export class Loader extends HTMLElement {
       <div class="progress">
         <div class="progress-bar-info">
           <div class="progress-bar-text">
-            <h3 id="text" class="progress-text">Loading file...</h3>
+            <h3 id="text" class="progress-text">正在加载文件...</h3>
           </div>
           <div class="progress-bar-totals progress-text">
-            <span id="loaded">0.0 MB</span><span id="percentage">(0)%</span><span>of</span><span id="total">?? MB</span>
+            <span id="loaded">0.0 MB</span><span id="percentage">(0)%</span><span>/</span><span id="total">?? MB</span>
           </div>
         </div>
         <div class="progress-bar"></div>
@@ -184,7 +184,7 @@ export class Loader extends HTMLElement {
           totalText.innerText = `${this.convertBytesToMegabytes(this.total)} MB`;
           percentageText.innerText = `(${value}%)`;
         }
-        text.innerText = "Initializing...";
+        text.innerText = "正在初始化...";
         bar.classList.add("progress-bar-indeterminate");
         return;
       }

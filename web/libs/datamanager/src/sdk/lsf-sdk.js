@@ -488,7 +488,7 @@ export class LSFWrapper {
             size="small"
             look="outlined"
           >
-            Next Task
+            下一条任务
           </Button>
         </div>
       ),

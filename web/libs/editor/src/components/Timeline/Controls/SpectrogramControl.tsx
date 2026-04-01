@@ -40,11 +40,11 @@ const findBestMelBandValue = (fftSize: number): number => {
 
 // Windowing Options
 const WINDOWING_OPTIONS = [
-  { value: "hann", label: "Hann" },
-  { value: "hamming", label: "Hamming" },
-  { value: "blackman", label: "Blackman" },
-  { value: "sine", label: "Sine" },
-  { value: "rectangular", label: "Rectangular" },
+  { value: "hann", label: "汉宁窗" },
+  { value: "hamming", label: "海明窗" },
+  { value: "blackman", label: "布莱克曼窗" },
+  { value: "sine", label: "正弦窗" },
+  { value: "rectangular", label: "矩形窗" },
 ];
 
 // Colormap Helper functions
@@ -77,112 +77,112 @@ const renderColorSchemeOption = (label: string, gradient: string) => (
 
 // Generate COLOR_SCHEME_OPTIONS with label + box
 const COLOR_SCHEME_OPTIONS: { label: React.ReactNode; value: string; key: string }[] = [
-  { label: renderColorSchemeOption("Autumn", getColorSchemeGradient("autumn")), value: "autumn", key: "autumn" },
+  { label: renderColorSchemeOption("秋色", getColorSchemeGradient("autumn")), value: "autumn", key: "autumn" },
   {
-    label: renderColorSchemeOption("Bathymetry", getColorSchemeGradient("bathymetry")),
+    label: renderColorSchemeOption("测深", getColorSchemeGradient("bathymetry")),
     value: "bathymetry",
     key: "bathymetry",
   },
   {
-    label: renderColorSchemeOption("Blackbody", getColorSchemeGradient("blackbody")),
+    label: renderColorSchemeOption("黑体", getColorSchemeGradient("blackbody")),
     value: "blackbody",
     key: "blackbody",
   },
-  { label: renderColorSchemeOption("BlueRed", getColorSchemeGradient("bluered")), value: "bluered", key: "bluered" },
-  { label: renderColorSchemeOption("Bone", getColorSchemeGradient("bone")), value: "bone", key: "bone" },
+  { label: renderColorSchemeOption("蓝红", getColorSchemeGradient("bluered")), value: "bluered", key: "bluered" },
+  { label: renderColorSchemeOption("骨色", getColorSchemeGradient("bone")), value: "bone", key: "bone" },
   { label: renderColorSchemeOption("CDOM", getColorSchemeGradient("cdom")), value: "cdom", key: "cdom" },
   {
-    label: renderColorSchemeOption("Chlorophyll", getColorSchemeGradient("chlorophyll")),
+    label: renderColorSchemeOption("叶绿素", getColorSchemeGradient("chlorophyll")),
     value: "chlorophyll",
     key: "chlorophyll",
   },
-  { label: renderColorSchemeOption("Cool", getColorSchemeGradient("cool")), value: "cool", key: "cool" },
-  { label: renderColorSchemeOption("Copper", getColorSchemeGradient("copper")), value: "copper", key: "copper" },
+  { label: renderColorSchemeOption("冷色", getColorSchemeGradient("cool")), value: "cool", key: "cool" },
+  { label: renderColorSchemeOption("铜色", getColorSchemeGradient("copper")), value: "copper", key: "copper" },
   {
-    label: renderColorSchemeOption("Cubehelix", getColorSchemeGradient("cubehelix")),
+    label: renderColorSchemeOption("立方螺旋", getColorSchemeGradient("cubehelix")),
     value: "cubehelix",
     key: "cubehelix",
   },
-  { label: renderColorSchemeOption("Density", getColorSchemeGradient("density")), value: "density", key: "density" },
-  { label: renderColorSchemeOption("Earth", getColorSchemeGradient("earth")), value: "earth", key: "earth" },
+  { label: renderColorSchemeOption("密度", getColorSchemeGradient("density")), value: "density", key: "density" },
+  { label: renderColorSchemeOption("地表", getColorSchemeGradient("earth")), value: "earth", key: "earth" },
   {
-    label: renderColorSchemeOption("Electric", getColorSchemeGradient("electric")),
+    label: renderColorSchemeOption("电光", getColorSchemeGradient("electric")),
     value: "electric",
     key: "electric",
   },
   {
-    label: renderColorSchemeOption("Freesurface Blue", getColorSchemeGradient("freesurface-blue")),
+    label: renderColorSchemeOption("自由表面蓝", getColorSchemeGradient("freesurface-blue")),
     value: "freesurface-blue",
     key: "freesurface-blue",
   },
   {
-    label: renderColorSchemeOption("Freesurface Red", getColorSchemeGradient("freesurface-red")),
+    label: renderColorSchemeOption("自由表面红", getColorSchemeGradient("freesurface-red")),
     value: "freesurface-red",
     key: "freesurface-red",
   },
-  { label: renderColorSchemeOption("Greens", getColorSchemeGradient("greens")), value: "greens", key: "greens" },
-  { label: renderColorSchemeOption("Greys", getColorSchemeGradient("greys")), value: "greys", key: "greys" },
-  { label: renderColorSchemeOption("Hot", getColorSchemeGradient("hot")), value: "hot", key: "hot" },
+  { label: renderColorSchemeOption("绿色", getColorSchemeGradient("greens")), value: "greens", key: "greens" },
+  { label: renderColorSchemeOption("灰度", getColorSchemeGradient("greys")), value: "greys", key: "greys" },
+  { label: renderColorSchemeOption("热度", getColorSchemeGradient("hot")), value: "hot", key: "hot" },
   { label: renderColorSchemeOption("HSV", getColorSchemeGradient("hsv")), value: "hsv", key: "hsv" },
-  { label: renderColorSchemeOption("Inferno", getColorSchemeGradient("inferno")), value: "inferno", key: "inferno" },
-  { label: renderColorSchemeOption("Jet", getColorSchemeGradient("jet")), value: "jet", key: "jet" },
-  { label: renderColorSchemeOption("Magma", getColorSchemeGradient("magma")), value: "magma", key: "magma" },
-  { label: renderColorSchemeOption("Oxygen", getColorSchemeGradient("oxygen")), value: "oxygen", key: "oxygen" },
+  { label: renderColorSchemeOption("炼狱", getColorSchemeGradient("inferno")), value: "inferno", key: "inferno" },
+  { label: renderColorSchemeOption("喷射", getColorSchemeGradient("jet")), value: "jet", key: "jet" },
+  { label: renderColorSchemeOption("岩浆", getColorSchemeGradient("magma")), value: "magma", key: "magma" },
+  { label: renderColorSchemeOption("氧气", getColorSchemeGradient("oxygen")), value: "oxygen", key: "oxygen" },
   { label: renderColorSchemeOption("PAR", getColorSchemeGradient("par")), value: "par", key: "par" },
-  { label: renderColorSchemeOption("Phase", getColorSchemeGradient("phase")), value: "phase", key: "phase" },
-  { label: renderColorSchemeOption("Picnic", getColorSchemeGradient("picnic")), value: "picnic", key: "picnic" },
-  { label: renderColorSchemeOption("Plasma", getColorSchemeGradient("plasma")), value: "plasma", key: "plasma" },
+  { label: renderColorSchemeOption("相位", getColorSchemeGradient("phase")), value: "phase", key: "phase" },
+  { label: renderColorSchemeOption("野餐", getColorSchemeGradient("picnic")), value: "picnic", key: "picnic" },
+  { label: renderColorSchemeOption("等离子", getColorSchemeGradient("plasma")), value: "plasma", key: "plasma" },
   {
-    label: renderColorSchemeOption("Portland", getColorSchemeGradient("portland")),
+    label: renderColorSchemeOption("波特兰", getColorSchemeGradient("portland")),
     value: "portland",
     key: "portland",
   },
-  { label: renderColorSchemeOption("Rainbow", getColorSchemeGradient("rainbow")), value: "rainbow", key: "rainbow" },
+  { label: renderColorSchemeOption("彩虹", getColorSchemeGradient("rainbow")), value: "rainbow", key: "rainbow" },
   {
-    label: renderColorSchemeOption("Rainbow Soft", getColorSchemeGradient("rainbow-soft")),
+    label: renderColorSchemeOption("柔和彩虹", getColorSchemeGradient("rainbow-soft")),
     value: "rainbow-soft",
     key: "rainbow-soft",
   },
   { label: renderColorSchemeOption("RdBu", getColorSchemeGradient("RdBu")), value: "RdBu", key: "RdBu" },
   {
-    label: renderColorSchemeOption("Salinity", getColorSchemeGradient("salinity")),
+    label: renderColorSchemeOption("盐度", getColorSchemeGradient("salinity")),
     value: "salinity",
     key: "salinity",
   },
-  { label: renderColorSchemeOption("Spring", getColorSchemeGradient("spring")), value: "spring", key: "spring" },
-  { label: renderColorSchemeOption("Summer", getColorSchemeGradient("summer")), value: "summer", key: "summer" },
+  { label: renderColorSchemeOption("春季", getColorSchemeGradient("spring")), value: "spring", key: "spring" },
+  { label: renderColorSchemeOption("夏季", getColorSchemeGradient("summer")), value: "summer", key: "summer" },
   {
-    label: renderColorSchemeOption("Temperature", getColorSchemeGradient("temperature")),
+    label: renderColorSchemeOption("温度", getColorSchemeGradient("temperature")),
     value: "temperature",
     key: "temperature",
   },
   {
-    label: renderColorSchemeOption("Turbidity", getColorSchemeGradient("turbidity")),
+    label: renderColorSchemeOption("浊度", getColorSchemeGradient("turbidity")),
     value: "turbidity",
     key: "turbidity",
   },
   {
-    label: renderColorSchemeOption("Velocity Blue", getColorSchemeGradient("velocity-blue")),
+    label: renderColorSchemeOption("速度蓝", getColorSchemeGradient("velocity-blue")),
     value: "velocity-blue",
     key: "velocity-blue",
   },
   {
-    label: renderColorSchemeOption("Velocity Green", getColorSchemeGradient("velocity-green")),
+    label: renderColorSchemeOption("速度绿", getColorSchemeGradient("velocity-green")),
     value: "velocity-green",
     key: "velocity-green",
   },
-  { label: renderColorSchemeOption("Viridis", getColorSchemeGradient("viridis")), value: "viridis", key: "viridis" },
-  { label: renderColorSchemeOption("Warm", getColorSchemeGradient("warm")), value: "warm", key: "warm" },
-  { label: renderColorSchemeOption("Winter", getColorSchemeGradient("winter")), value: "winter", key: "winter" },
+  { label: renderColorSchemeOption("翠绿", getColorSchemeGradient("viridis")), value: "viridis", key: "viridis" },
+  { label: renderColorSchemeOption("暖色", getColorSchemeGradient("warm")), value: "warm", key: "warm" },
+  { label: renderColorSchemeOption("冬季", getColorSchemeGradient("winter")), value: "winter", key: "winter" },
   { label: renderColorSchemeOption("YIGnBu", getColorSchemeGradient("YIGnBu")), value: "YIGnBu", key: "YIGnBu" },
   { label: renderColorSchemeOption("YIOrRd", getColorSchemeGradient("YIOrRd")), value: "YIOrRd", key: "YIOrRd" },
 ].sort((a, b) => a.value.localeCompare(b.value));
 
 // Scale Options
 const SCALE_OPTIONS: { label: string; value: SpectrogramScale }[] = [
-  { value: "linear", label: "Linear Frequency" },
-  { value: "log", label: "Logarithmic Frequency" },
-  { value: "mel", label: "Mel Scale" },
+  { value: "linear", label: "线性频率" },
+  { value: "log", label: "对数频率" },
+  { value: "mel", label: "Mel 标度" },
 ];
 
 export interface SpectrogramControlProps {
@@ -418,7 +418,7 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
   const showWarning =
     Number(fftInputText) > 1024 || (displayScale === "mel" && (settings?.numberOfMelBands ?? DEFAULT_MEL_VALUE) > 140);
 
-  const fftInfoText = "Higher values provide more frequency resolution but increase computation.";
+  const fftInfoText = "数值越高，频率分辨率越高，但计算量也会增加。";
   const displayMelBands = settings?.numberOfMelBands ?? DEFAULT_MEL_VALUE;
   const displayWindowFunc = settings?.spectrogramWindowingFunction ?? DEFAULT_WINDOWING_FUNCTION;
   const isMelScaleSelected = displayScale === "mel";
@@ -426,7 +426,7 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
   return (
     <div className={cn("spectrogram-controls").toClassName()}>
       {showWarning && (
-        <Tooltip title="High FFT or mel band values may cause performance issues or artifacts.">
+        <Tooltip title="过高的 FFT 或 Mel 频带值可能导致性能问题或显示伪影。">
           <IconWarningCircleFilled
             style={{
               color: "var(--color-warning-icon, #faad14)",
@@ -453,7 +453,7 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
         />
         <div className={cn("spectrogram-controls").elem("control").toClassName()}>
           <div className={cn("spectrogram-controls").elem("info").toClassName()}>
-            FFT Samples
+            FFT 采样数
             <Tooltip title={fftInfoText}>
               <IconInfoConfig />
             </Tooltip>
@@ -468,8 +468,8 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
       </div>
       <div className={cn("spectrogram-controls").elem("spectrogram-controls").toClassName()}>
         <div className={cn("spectrogram-controls").elem("info").toClassName()}>
-          Scale
-          <Tooltip title="Determines the frequency scale mapping: Linear, Logarithmic, or Mel (perceptual).">
+          频率刻度
+          <Tooltip title="决定频率刻度映射方式：线性、对数或 Mel（感知）刻度。">
             <IconInfoConfig />
           </Tooltip>
         </div>
@@ -482,8 +482,8 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
             max={220}
             step={1}
             value={displayMelBands}
-            description={"Number of Mel Bands"}
-            info={"Specifies the number of frequency bands using the Mel scale. "}
+            description={"Mel 频带数量"}
+            info={"指定使用 Mel 刻度时的频率分带数量。"}
             onChange={handleChangeNumberOfMelBands}
           />
         </div>
@@ -502,8 +502,8 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
         />
         <div className={cn("spectrogram-controls").elem("control").toClassName()}>
           <div className={cn("spectrogram-controls").elem("info").toClassName()}>
-            Spectogram dB
-            <Tooltip title="Controls the range of decibel values shown in the spectrogram. Lower values show quieter sounds.">
+            频谱图 dB
+            <Tooltip title="控制频谱图中显示的分贝范围。数值越低，显示的声音越安静。">
               <IconInfoConfig />
             </Tooltip>
           </div>
@@ -521,7 +521,7 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
               min={-120}
               max={displayMaxDb - 10}
             />
-            <span className={cn("spectrogram-controls").elem("separator").toClassName()}>to</span>
+            <span className={cn("spectrogram-controls").elem("separator").toClassName()}>到</span>
             <input
               className={cn("spectrogram-controls").elem("input").toClassName()}
               type="number"
@@ -539,7 +539,7 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
         </div>
       </div>
       <div className={cn("spectrogram-controls").elem("spectrogram-controls").toClassName()}>
-        <div className={cn("spectrogram-controls").elem("label").toClassName()}>Windowing Function</div>
+        <div className={cn("spectrogram-controls").elem("label").toClassName()}>窗函数</div>
         <Select
           value={displayWindowFunc}
           onChange={handleChangeWindowingFunction}
@@ -548,7 +548,7 @@ export const SpectrogramControl: FC<SpectrogramControlProps> = ({ waveform }) =>
         />
       </div>
       <div className={cn("spectrogram-controls").elem("spectrogram-controls").toClassName()}>
-        <div className={cn("spectrogram-controls").elem("label").toClassName()}>Color Scheme</div>
+        <div className={cn("spectrogram-controls").elem("label").toClassName()}>配色方案</div>
         <Select
           value={displayColorScheme}
           onChange={handleChangeColorScheme}

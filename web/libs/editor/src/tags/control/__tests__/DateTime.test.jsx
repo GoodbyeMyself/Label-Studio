@@ -401,8 +401,8 @@ describe("HtxDateTime view", () => {
         <HtxDateTime item={item} />
       </Provider>,
     );
-    expect(screen.getByText("Month...")).toBeInTheDocument();
-    expect(screen.getByText("Year...")).toBeInTheDocument();
+    expect(screen.getByText("月份...")).toBeInTheDocument();
+    expect(screen.getByText("年份...")).toBeInTheDocument();
   });
 
   it("applies red border when invalid", () => {

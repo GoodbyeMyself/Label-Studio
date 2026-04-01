@@ -277,21 +277,21 @@ describe("ConfigControl", () => {
     expect(parentClick).not.toHaveBeenCalled();
   });
 
-  it("shows spectrogram section and Show spectrogram when FF_AUDIO_SPECTROGRAMS is on", () => {
+  it("启用 FF_AUDIO_SPECTROGRAMS 时显示频谱图区域和显示频谱图按钮", () => {
     const { isFF } = require("../../../../utils/feature-flags");
     (isFF as jest.Mock).mockReturnValue(true);
     renderWithContext({ configModal: true });
-    expect(screen.getByText("Spectrogram Settings")).toBeInTheDocument();
+    expect(screen.getByText("频谱图设置")).toBeInTheDocument();
     expect(screen.getByTestId("spectrogram-control")).toBeInTheDocument();
-    expect(screen.getByText("Show spectrogram")).toBeInTheDocument();
+    expect(screen.getByText("显示 频谱图")).toBeInTheDocument();
   });
 
-  it("calls toggleVisibility for spectrogram when Show spectrogram is clicked and FF on", async () => {
+  it("启用 FF_AUDIO_SPECTROGRAMS 时点击显示频谱图会调用 toggleVisibility", async () => {
     const { isFF } = require("../../../../utils/feature-flags");
     (isFF as jest.Mock).mockReturnValue(true);
     const toggleVisibility = jest.fn();
     renderWithContext({ configModal: true, toggleVisibility });
-    await userEvent.click(screen.getByText("Show spectrogram"));
+    await userEvent.click(screen.getByText("显示 频谱图"));
     expect(toggleVisibility).toHaveBeenCalledWith("spectrogram", true);
   });
 

@@ -235,7 +235,7 @@ const validateVisualTags = (element) => {
   const { tagName } = element;
 
   if (visualTags.includes(tagName) && element.name) {
-    return errorBuilder.generalError(`Attribute <b>name</b> is not allowed for tag <b>${tagName}</b>.`);
+    return errorBuilder.generalError(`标签 <b>${tagName}</b> 不允许使用属性 <b>name</b>。`);
   }
 
   return null;
@@ -277,8 +277,8 @@ const validatePerRegion = (child) => {
   if (child.perregion && child.peritem) {
     validationResult.push(
       errorBuilder.generalError(
-        "Attribute <b>perItem</b> is incompatible with attribute <b>perRegion</b>. " +
-          "They define two different modes. However <b>perRegion</b> works fine even with multi-item mode of object tags.",
+        "属性 <b>perItem</b> 与属性 <b>perRegion</b> 不兼容。" +
+          "<b>perItem</b> 和 <b>perRegion</b> 定义的是两种不同模式，但 <b>perRegion</b> 在对象标签的多项模式下仍可正常工作。",
       ),
     );
   }

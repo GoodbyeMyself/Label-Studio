@@ -18,7 +18,7 @@ export const jsonPathToTitle = (jsonPath: string): string => {
       .split(".")
       .filter(Boolean)
       .map(capitalize)
-      .join(" / ") || "Value"
+      .join(" / ") || "值"
   );
 };
 
@@ -221,7 +221,7 @@ export const renderers: Record<string, RendererType> = {
               {truncate(key)}
             </Chip>
           ))}
-          {hiddenCount > 0 && <span className="text-neutral-content-subtle text-sm">+{hiddenCount} more</span>}
+          {hiddenCount > 0 && <span className="text-neutral-content-subtle text-sm">还有 {hiddenCount} 项</span>}
         </span>
       );
     }
@@ -230,7 +230,7 @@ export const renderers: Record<string, RendererType> = {
 
     // Format the value based on its type
     if (typeof extracted === "boolean") {
-      return <span className="text-sm font-mono">{extracted ? "true" : "false"}</span>;
+      return <span className="text-sm font-mono">{extracted ? "是" : "否"}</span>;
     }
 
     if (typeof extracted === "number") {
@@ -254,7 +254,7 @@ export const renderers: Record<string, RendererType> = {
             <Chip key={i}>{typeof item === "object" ? JSON.stringify(item) : String(item)}</Chip>
           ))}
           {extracted.length > 5 && (
-            <span className="text-neutral-content-subtle text-sm">+{extracted.length - 5} more</span>
+            <span className="text-neutral-content-subtle text-sm">还有 {extracted.length - 5} 项</span>
           )}
         </span>
       );

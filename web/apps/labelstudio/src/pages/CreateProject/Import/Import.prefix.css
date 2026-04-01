@@ -272,7 +272,7 @@
 
   &_hovered {
     &::before {
-      content: "Drop file(s) to upload";
+      content: "拖放文件以上传";
       position: absolute;
       inset: 0 32px 32px;
       border: 2px dashed var(--color-primary-border-subtle);

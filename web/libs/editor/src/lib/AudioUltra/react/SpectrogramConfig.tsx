@@ -98,24 +98,24 @@ export const SpectrogramConfig: React.FC<SpectrogramConfigProps> = ({ waveform }
 
   return (
     <div className="spectrogram-config">
-      <h3>Spectrogram Settings</h3>
+      <h3>频谱图设置</h3>
       <div className="control-group">
         <label>
-          Scale
+          缩放方式
           <select onChange={(e) => setScale(e.target.value as SpectrogramScale)}>
-            <option value="linear">Linear</option>
-            <option value="log">Logarithmic</option>
-            <option value="mel">Mel</option>
+            <option value="linear">线性</option>
+            <option value="log">对数</option>
+            <option value="mel">Mel 标度</option>
           </select>
         </label>
 
         <label>
-          Mel Bands
+          Mel 频带数
           <input type="number" min="1" max="512" onChange={(e) => setMelBands(Number.parseInt(e.target.value))} />
         </label>
 
         <label>
-          FFT Size
+          FFT 大小
           <select onChange={(e) => setFftSamples(Number.parseInt(e.target.value))}>
             <option value="256">256</option>
             <option value="512">512</option>
@@ -126,28 +126,28 @@ export const SpectrogramConfig: React.FC<SpectrogramConfigProps> = ({ waveform }
         </label>
 
         <label>
-          Window Function
+          窗函数
           <select onChange={(e) => setWindowingFunction(e.target.value as WindowFunctionType)}>
-            <option value="hann">Hann</option>
-            <option value="hamming">Hamming</option>
-            <option value="blackman">Blackman</option>
-            <option value="rectangular">Rectangular</option>
+            <option value="hann">汉宁窗 (Hann)</option>
+            <option value="hamming">汉明窗 (Hamming)</option>
+            <option value="blackman">布莱克曼窗 (Blackman)</option>
+            <option value="rectangular">矩形窗 (Rectangular)</option>
           </select>
         </label>
 
         <label>
-          Color Scheme
+          配色方案
           <select onChange={(e) => setColorScheme(e.target.value as ColorScheme)}>
-            <option value="inferno">Inferno</option>
-            <option value="magma">Magma</option>
-            <option value="viridis">Viridis</option>
-            <option value="plasma">Plasma</option>
+            <option value="inferno">炼狱 (Inferno)</option>
+            <option value="magma">岩浆 (Magma)</option>
+            <option value="viridis">翠绿 (Viridis)</option>
+            <option value="plasma">等离子 (Plasma)</option>
           </select>
         </label>
 
         <div className="db-range">
           <label>
-            Min dB
+            最小 dB
             <input
               type="number"
               step="1"
@@ -163,7 +163,7 @@ export const SpectrogramConfig: React.FC<SpectrogramConfigProps> = ({ waveform }
           </label>
 
           <label>
-            Max dB
+            最大 dB
             <input
               type="number"
               step="1"

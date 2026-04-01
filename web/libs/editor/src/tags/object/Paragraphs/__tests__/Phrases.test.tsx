@@ -95,7 +95,7 @@ describe("Phrases Component", () => {
       expect(screen.getByText("This is phrase 2")).toBeInTheDocument();
 
       // Should not show select all buttons when feature flag is off
-      expect(screen.queryByLabelText(/Label whole utterance/)).not.toBeInTheDocument();
+      expect(screen.queryByLabelText(/标注整句内容/)).not.toBeInTheDocument();
     });
   });
 
@@ -121,7 +121,7 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const selectAllButtons = screen.getAllByLabelText("Label whole utterance");
+        const selectAllButtons = screen.getAllByLabelText("标注整句内容");
         expect(selectAllButtons).toHaveLength(2); // One for each phrase
 
         selectAllButtons.forEach((button) => {
@@ -142,7 +142,7 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const firstSelectAllButton = screen.getAllByLabelText("Label whole utterance")[0];
+        const firstSelectAllButton = screen.getAllByLabelText("标注整句内容")[0];
         fireEvent.click(firstSelectAllButton);
 
         expect(item.selectAndAnnotatePhrase).toHaveBeenCalledWith(0);
@@ -161,14 +161,14 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const selectAllButton = screen.getAllByLabelText("Label whole utterance")[0];
+        const selectAllButton = screen.getAllByLabelText("标注整句内容")[0];
         const tooltipTarget = selectAllButton.closest('[data-testid*="tooltip"]') || selectAllButton.parentElement;
 
         if (tooltipTarget) {
           fireEvent.mouseEnter(tooltipTarget);
         }
 
-        expect(screen.getByText("Label whole utterance")).toBeInTheDocument();
+        expect(screen.getByText("标注整句内容")).toBeInTheDocument();
       });
     });
 
@@ -186,7 +186,7 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const selectAllButtons = screen.getAllByLabelText("Label whole utterance (disabled)");
+        const selectAllButtons = screen.getAllByLabelText("标注整句内容（未启用）");
         expect(selectAllButtons).toHaveLength(2); // One for each phrase
 
         selectAllButtons.forEach((button) => {
@@ -207,7 +207,7 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const firstSelectAllButton = screen.getAllByLabelText("Label whole utterance (disabled)")[0];
+        const firstSelectAllButton = screen.getAllByLabelText("标注整句内容（未启用）")[0];
         fireEvent.click(firstSelectAllButton);
 
         expect(item.selectAndAnnotatePhrase).not.toHaveBeenCalled();
@@ -226,7 +226,7 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const selectAllButton = screen.getAllByLabelText("Label whole utterance (disabled)")[0];
+        const selectAllButton = screen.getAllByLabelText("标注整句内容（未启用）")[0];
 
         // The tooltip should work even on disabled buttons due to our wrapper solution
         expect(selectAllButton.closest("span")).toBeInTheDocument();
@@ -293,7 +293,7 @@ describe("Phrases Component", () => {
         );
 
         // Initially disabled
-        expect(screen.getAllByLabelText("Label whole utterance (disabled)")[0]).toBeDisabled();
+        expect(screen.getAllByLabelText("标注整句内容（未启用）")[0]).toBeDisabled();
 
         // Re-render with labels selected
         rerender(
@@ -307,7 +307,7 @@ describe("Phrases Component", () => {
         );
 
         // Now enabled
-        expect(screen.getAllByLabelText("Label whole utterance")[0]).not.toBeDisabled();
+        expect(screen.getAllByLabelText("标注整句内容")[0]).not.toBeDisabled();
       });
     });
 
@@ -325,7 +325,7 @@ describe("Phrases Component", () => {
           />,
         );
 
-        const selectAllButton = screen.getAllByLabelText("Label whole utterance")[0];
+        const selectAllButton = screen.getAllByLabelText("标注整句内容")[0];
 
         // Should not throw error when method is missing
         expect(() => fireEvent.click(selectAllButton)).not.toThrow();

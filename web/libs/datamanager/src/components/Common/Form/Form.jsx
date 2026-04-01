@@ -538,7 +538,7 @@ Form.Builder = forwardRef(
         {props.autosubmit !== true && withActions === true && (
           <Form.Actions>
             <Button type="submit" style={{ width: 120 }}>
-              Save
+              保存
             </Button>
           </Form.Actions>
         )}

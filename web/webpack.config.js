@@ -37,6 +37,7 @@ const BUILD = {
 };
 
 const isCssLoader = (loader) => typeof loader === "string" && /[\\/]css-loader[\\/]/.test(loader);
+const isSourceMapLoader = (loader) => typeof loader === "string" && /[\\/]source-map-loader[\\/]/.test(loader);
 
 const hasCssLoader = (oneOfRule) =>
   Array.isArray(oneOfRule?.use) && oneOfRule.use.some((use) => isCssLoader(use.loader));
@@ -150,6 +151,23 @@ module.exports = composePlugins(
       syncWebAssembly: true,
       asyncWebAssembly: true,
     };
+
+    // Third-party packages sometimes publish sourceMappingURL references
+    // without shipping the actual .map files, which creates noisy warnings.
+    // Keep source maps for workspace code, but stop scanning node_modules.
+    config.module.rules.forEach((rule) => {
+      if (rule.loader && isSourceMapLoader(rule.loader)) {
+        rule.exclude = /node_modules/;
+      }
+
+      if (Array.isArray(rule.use)) {
+        const hasSourceMapLoader = rule.use.some((use) => isSourceMapLoader(use.loader));
+
+        if (hasSourceMapLoader) {
+          rule.exclude = /node_modules/;
+        }
+      }
+    });
 
     config.module.rules.forEach((rule) => {
       if (!rule.oneOf || !rule.test?.toString().includes("css")) return;

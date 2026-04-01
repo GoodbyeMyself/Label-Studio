@@ -631,21 +631,21 @@ const ParagraphsLoadingModel = types.model().actions((self) => ({
     const errors = [];
 
     if (!Array.isArray(val)) {
-      errors.push("Provided data is not an array");
+      errors.push("提供的数据不是数组");
     } else {
       if (!(self.namekey in val[0])) {
-        errors.push(`"${self.namekey}" field not found in task data; check your <b>nameKey</b> parameter`);
+        errors.push(`任务数据中未找到字段 "${self.namekey}"；请检查你的 <b>nameKey</b> 参数`);
       }
       if (!(self.textkey in val[0])) {
-        errors.push(`"${self.textkey}" field not found in task data; check your <b>textKey</b> parameter`);
+        errors.push(`任务数据中未找到字段 "${self.textkey}"；请检查你的 <b>textKey</b> 参数`);
       }
     }
     if (errors.length) {
       const general = [
-        `Task data (provided as <b>${self.value}</b>) has wrong format.<br/>`,
-        "It should be an array of objects with fields,",
-        'defined by <b>nameKey</b> ("author" by default)',
-        'and <b>textKey</b> ("text" by default)',
+        `任务数据（通过 <b>${self.value}</b> 提供）格式不正确。<br/>`,
+        "它应当是一个对象数组，并包含以下字段：",
+        '由 <b>nameKey</b> 定义（默认是 "author"）',
+        '以及由 <b>textKey</b> 定义（默认是 "text"）',
       ].join(" ");
 
       self.store.annotationStore.addErrors([

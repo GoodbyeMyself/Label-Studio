@@ -372,7 +372,7 @@ const HtxDateTime = inject("store")(
             name={`${item.name}-date`}
             disabled={disabled}
             value={item.month}
-            placeholder="Month..."
+            placeholder="月份..."
             onChange={(val) => (disabled ? undefined : item.onMonthChange(val))}
             options={item.months.map((month, index) => ({ value: index + 1, label: month }))}
             isInline={true}
@@ -384,7 +384,7 @@ const HtxDateTime = inject("store")(
             name={`${item.name}-year`}
             disabled={disabled}
             value={item.year || ""}
-            placeholder="Year..."
+            placeholder="年份..."
             onChange={(val) => (disabled ? undefined : item.onYearChange(val))}
             options={item.years}
             isInline={true}

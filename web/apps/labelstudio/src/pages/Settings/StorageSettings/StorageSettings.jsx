@@ -31,25 +31,20 @@ export const StorageSettings = () => {
 
   useUpdatePageTitle(createTitleFromSegments([project?.title, "云存储设置"]));
 
-  // Fetch storage data at parent level
   const sourceStorage = useStorageCard("", project?.id);
   const targetStorage = useStorageCard("export", project?.id);
 
-  // Check if any storages exist
   const hasAnyStorages = sourceStorage.storages?.length > 0 || targetStorage.storages?.length > 0;
   const isLoading = sourceStorage.loading || targetStorage.loading;
   const isLoaded = sourceStorage.loaded && targetStorage.loaded;
 
-  // Handle auto-open query parameter
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     if (urlParams.get("open") === "source" && isLoaded) {
-      // Auto-trigger "Add Source Storage" modal
       setTimeout(() => {
         sourceStorageRef.current?.openAddModal();
-      }, 100); // Small delay to ensure component is mounted
+      }, 100);
 
-      // Clean URL by removing the query parameter
       history.replace(location.pathname);
     }
   }, [location, history, isLoaded]);
@@ -71,12 +66,11 @@ export const StorageSettings = () => {
         </div>
       )}
 
-      {/* Always render StorageSet components (hidden when showing EmptyState) so refs are populated */}
       <div className={!hasAnyStorages && isLoaded ? "hidden" : ""}>
         <div className="grid grid-cols-2 gap-8">
           <StorageSet
             ref={sourceStorageRef}
-            title="源云存储"
+            title="源存储"
             buttonLabel="添加源存储"
             rootClass={rootClass}
             storageTypes={sourceStorage.storageTypes}
@@ -89,7 +83,7 @@ export const StorageSettings = () => {
 
           <StorageSet
             ref={targetStorageRef}
-            title="目标云存储"
+            title="目标存储"
             target="export"
             buttonLabel="添加目标存储"
             rootClass={rootClass}
@@ -103,7 +97,6 @@ export const StorageSettings = () => {
         </div>
       </div>
 
-      {/* Show EmptyState when no storages exist */}
       {!hasAnyStorages && isLoaded && !isLoading && (
         <SimpleCard title="" className="bg-primary-background border-primary-border-subtler p-base">
           <EmptyState
@@ -129,8 +122,8 @@ export const StorageSettings = () => {
                     <IconCloudProviderAzure width={32} height={32} className="text-neutral-content-subtler" />
                   </div>
                 </Tooltip>
-                <Tooltip title="Redis Storage">
-                  <div className="flex items-center justify-center p-2" aria-label="Redis Storage">
+                <Tooltip title="Redis 存储">
+                  <div className="flex items-center justify-center p-2" aria-label="Redis 存储">
                     <IconCloudProviderRedis width={32} height={32} className="text-neutral-content-subtler" />
                   </div>
                 </Tooltip>

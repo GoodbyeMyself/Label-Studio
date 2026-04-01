@@ -142,8 +142,8 @@ const StorageProviderIcons = () => (
         <IconCloudProviderS3 width={32} height={32} className="text-neutral-content-subtler" />
       </div>
     </Tooltip>
-    <Tooltip title="Google Cloud Storage">
-      <div className="flex items-center justify-center p-2" aria-label="Google Cloud Storage">
+    <Tooltip title="Google Cloud Storage 存储">
+      <div className="flex items-center justify-center p-2" aria-label="Google Cloud Storage 存储">
         <IconCloudProviderGCS width={32} height={32} className="text-neutral-content-subtler" />
       </div>
     </Tooltip>

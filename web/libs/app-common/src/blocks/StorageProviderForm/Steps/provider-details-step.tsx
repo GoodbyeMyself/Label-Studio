@@ -25,7 +25,7 @@ export const ProviderDetailsStep = ({
   const providerConfig = getProviderConfig(provider);
 
   if (!provider || !providerConfig) {
-    return <div className="text-red-500">{!provider ? "No provider selected" : `Unknown provider: ${provider}`}</div>;
+    return <div className="text-red-500">{!provider ? "尚未选择提供商" : `未知提供商：${provider}`}</div>;
   }
 
   return (
@@ -35,13 +35,12 @@ export const ProviderDetailsStep = ({
         <p className="text-muted-foreground">{providerConfig.description}</p>
       </div>
 
-      {/* Title field - common for all providers */}
       <div className="space-y-2">
         <Input
           name="title"
           value={formData.title ?? ""}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleProviderFieldChange("title", e.target.value)}
-          placeholder="Enter a descriptive name (e.g., 'Legal Documents', 'Training Data')"
+          placeholder="输入描述性名称，例如“法务文档”或“训练数据”"
           validate=""
           skip={false}
           labelProps={{}}
@@ -49,8 +48,8 @@ export const ProviderDetailsStep = ({
           tooltip=""
           tooltipIcon={null}
           required={true}
-          label="Storage Title"
-          description="This name will help you identify this connection in your project"
+          label="存储标题"
+          description="该名称可帮助你在项目中识别这条连接。"
           footer={errors.title ? <span className="text-negative-content">{errors.title}</span> : ""}
           className={errors.title ? "border-negative-content" : ""}
         />
@@ -66,16 +65,15 @@ export const ProviderDetailsStep = ({
         target={target}
       />
 
-      {/* Export-specific common fields */}
       {target === "export" && (
         <div className="space-y-6">
           <div className="space-y-2">
             <Toggle
               checked={formData.can_delete_objects ?? false}
               onChange={(e) => handleProviderFieldChange("can_delete_objects", e.target.checked)}
-              aria-label="Can delete objects from storage"
-              label="Can delete objects from storage"
-              description="If unchecked, annotations will not be deleted from storage"
+              aria-label="允许从存储中删除对象"
+              label="允许从存储中删除对象"
+              description="如果未勾选，则不会从存储中删除标注结果。"
             />
           </div>
         </div>

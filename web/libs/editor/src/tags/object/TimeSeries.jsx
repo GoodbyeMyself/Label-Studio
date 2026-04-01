@@ -302,12 +302,12 @@ const Model = types
         // Require a timeformat for non numeric values
       } else if (!self.timeformat && isNaN(data[self.keyColumn][0])) {
         const message = [
-          `Looks like your <b>timeColumn</b> (${self.timecolumn}) contains non-numbers.`,
-          "You have to use <b>timeFormat</b> parameter if your values are datetimes.",
-          `First wrong values: ${data[self.keyColumn].slice(0, 3).join(", ")}`,
+          `看起来你的 <b>timeColumn</b>（${self.timecolumn}）包含非数字值。`,
+          "如果这些值是日期时间，你必须使用 <b>timeFormat</b> 参数。",
+          `前几个异常值：${data[self.keyColumn].slice(0, 3).join(", ")}`,
           `<a href="${
             getEnv(self).messages.URL_TAGS_DOCS
-          }/timeseries.html#Parameters" target="_blank">Read Documentation</a> for details.`,
+          }/timeseries.html#Parameters" target="_blank">查看文档</a>了解详情。`,
         ];
 
         throw new Error(message.join("<br/>"));
@@ -375,11 +375,11 @@ const Model = types
 
             throw new Error(
               [
-                `<b>timeColumn</b> (${self.timecolumn}) must be incremental and sequentially ordered.`,
-                `First wrong values: ${nonSeqValues.join(", ")}`,
+                `<b>timeColumn</b>（${self.timecolumn}）必须按递增顺序排列。`,
+                `前几个异常值：${nonSeqValues.join(", ")}`,
                 `<br/><a href="${
                   getEnv(self).messages.URL_TAGS_DOCS
-                }/timeseries.html" target="_blank">Read Documentation</a> for details.`,
+                }/timeseries.html" target="_blank">查看文档</a>了解详情。`,
               ].join("<br/>"),
             );
           }
@@ -391,25 +391,25 @@ const Model = types
         const failedValues = timestamps.slice(0, 3).filter((t) => t === null || t === 0 || isNaN(t));
         if (failedValues.length >= 2) {
           const message = [
-            `<b>timeColumn</b> (${self.timecolumn}) cannot be parsed.`,
-            `First wrong values: ${data[self.keyColumn].slice(0, 3).join(", ")}`,
+            `<b>timeColumn</b>（${self.timecolumn}）无法解析。`,
+            `前几个异常值：${data[self.keyColumn].slice(0, 3).join(", ")}`,
           ];
 
           if (self.timeformat) {
-            message.push(`Your <b>timeFormat</b>: ${self.timeformat}. It should be compatible with these values.`);
+            message.push(`你当前的 <b>timeFormat</b>：${self.timeformat}。它需要与这些值兼容。`);
 
             if (self.timeformat.includes("%f")) {
               message.push(
-                "<b>Note:</b> %f (microseconds) is not supported by D3. Use %L (milliseconds) instead and convert your data to 3-digit milliseconds.",
+                "<b>注意：</b>D3 不支持 %f（微秒）。请改用 %L（毫秒），并将数据转换为 3 位毫秒格式。",
               );
             }
           } else {
-            message.push("You have to use <b>timeFormat</b> parameter if your values are datetimes.");
+            message.push("如果这些值是日期时间，你必须使用 <b>timeFormat</b> 参数。");
           }
           message.push(
             `<br/><a href="${
               getEnv(self).messages.URL_TAGS_DOCS
-            }/timeseries.html#Parameters" target="_blank">Read Documentation</a> for details.`,
+            }/timeseries.html#Parameters" target="_blank">查看文档</a>了解详情。`,
           );
           throw new Error(message.join("<br/>"));
         }

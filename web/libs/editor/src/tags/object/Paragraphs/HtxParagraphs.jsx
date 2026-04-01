@@ -64,7 +64,7 @@ const ParagraphAudio = observer(({ item }) => {
 
   return (
     <>
-      {isBuffering && <div className="lsf-timeline-controls__buffering" aria-label="Buffering Media Source" />}
+      {isBuffering && <div className="lsf-timeline-controls__buffering" aria-label="媒体源缓冲中" />}
       <audio
         {...audioDefaultProps}
         controls={item.showplayer && !item.syncedAudio}
@@ -977,9 +977,9 @@ class HtxParagraphsView extends Component {
                   canScroll: !this.state.canScroll,
                 });
               }}
-              label={"Auto-scroll"}
+              label={"自动滚动"}
             />
-            <Tooltip alignment="top-left" title="Automatically sync transcript scrolling with audio playback">
+            <Tooltip alignment="top-left" title="根据音频播放自动同步转录文本滚动">
               <IconHelp />
             </Tooltip>
           </div>

@@ -23,10 +23,8 @@ export const ProviderSelectionStep = ({
   handleSelectChange,
   providers,
 }: ProviderSelectionStepProps) => {
-  // Set default provider if none is selected and we have options
   useEffect(() => {
     if (!formData.provider && Object.entries(providers).length > 0) {
-      // Find the first non-disabled provider
       const enabledProviders = Object.values(providers).filter((provider) => !provider.disabled);
       if (enabledProviders.length > 0) {
         handleSelectChange("provider", enabledProviders[0].name);
@@ -34,11 +32,9 @@ export const ProviderSelectionStep = ({
     }
   }, [providers, formData.provider, handleSelectChange]);
 
-  // Get the selected provider config
   const selectedProvider = formData.provider ? providers[formData.provider] : null;
   const isSelectedProviderDisabled = selectedProvider?.disabled || false;
 
-  // Get the message content from the provider config
   const getMessageContent = () => {
     if (!selectedProvider?.fields) return null;
 
@@ -51,13 +47,13 @@ export const ProviderSelectionStep = ({
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold">Choose your cloud storage provider</h2>
-        <p className="text-muted-foreground">Select the cloud storage service where your data is stored</p>
+        <h2 className="text-xl font-semibold">选择云存储提供商</h2>
+        <p className="text-muted-foreground">选择用于存放数据的云存储服务</p>
       </div>
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label text="Storage Provider" required />
+          <Label text="存储提供商" required />
           <ProviderGrid
             providers={providers}
             selectedProvider={formData.provider}
@@ -66,7 +62,6 @@ export const ProviderSelectionStep = ({
           />
         </div>
 
-        {/* Show alert message when disabled provider is selected */}
         {isSelectedProviderDisabled && messageContent && (
           <div>{typeof messageContent === "function" ? messageContent({}) : messageContent}</div>
         )}

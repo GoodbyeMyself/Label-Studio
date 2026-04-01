@@ -415,9 +415,9 @@ const HtxTextArea = observer(({ item }) => {
         >
           <Form.Item style={itemStyle}>
             {rows === 1 ? (
-              <Input {...props} aria-label="TextArea Input" data-testid="textarea-input" />
+              <Input {...props} aria-label="文本输入框" data-testid="textarea-input" />
             ) : (
-              <TextArea {...props} aria-label="TextArea Input" data-testid="textarea-input" />
+              <TextArea {...props} aria-label="文本输入框" data-testid="textarea-input" />
             )}
             {showAddButton && (
               <div
