@@ -9,6 +9,8 @@ import { HeidiTips } from "../../components/HeidiTips/HeidiTips";
 import { FF_LSDV_E_297, isFF } from "../../utils/feature-flags";
 import { createURL } from "../../components/HeidiTips/utils";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+
 export const GeneralSettings = () => {
   const { project, fetchProject } = useContext(ProjectContext);
 
@@ -83,7 +85,7 @@ export const GeneralSettings = () => {
                     label={
                       <>
                         不确定性采样{" "}
-                        <Tooltip title="仅 Label Studio 企业版可用">
+                        <Tooltip title={`仅 ${APP_NAME} 企业版可用`}>
                           <Badge
                             variant="enterprise"
                             icon={<IconSpark />}

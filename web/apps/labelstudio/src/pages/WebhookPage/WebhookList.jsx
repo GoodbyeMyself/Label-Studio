@@ -8,6 +8,8 @@ import { useAPI } from "../../providers/ApiProvider";
 import { WebhookDeleteModal } from "./WebhookDeleteModal";
 import { ABILITY, useAuth } from "@humansignal/core/providers/AuthProvider";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+
 const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, canChangeWebhooks }) => {
   return (
     <li
@@ -43,7 +45,7 @@ const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, ca
       {canChangeWebhooks && (
         <div className="hidden group-hover:flex gap-2">
           <Button variant="primary" look="outlined" onClick={() => onSelectActive(webhook.id)} icon={<IconPencil />}>
-            编辑
+            编辑配置
           </Button>
           <Button
             variant="negative"
@@ -88,12 +90,12 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
     <>
       <header className="mb-base">
         <Typography variant="headline" size="medium" className="mb-tight">
-          Webhook
+          Webhook 配置
         </Typography>
         {webhooks.length > 0 && (
           <Typography size="small" className="text-neutral-content-subtler">
-            使用 Webhook 配置订阅特定事件的集成。当事件被触发时，{"app name"} 会向已配置的 Webhook URL
-            发送 HTTP POST 请求。
+            使用 Webhook 配置订阅特定事件的集成。当事件被触发时，{APP_NAME} 会向已配置的 Webhook URL 发送 HTTP
+            POST 请求。
           </Typography>
         )}
       </header>
@@ -104,16 +106,16 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
               size="medium"
               variant="primary"
               icon={<IconWebhook />}
-              title="添加你的第一个 Webhook"
-              description="使用 Webhook 配置订阅特定事件的集成。当事件被触发时，Label Studio 会向已配置的 Webhook URL 发送 HTTP POST 请求。"
+              title="添加第一个 Webhook 配置"
+              description={`使用 Webhook 配置订阅特定事件的集成。当事件被触发时，${APP_NAME} 会向已配置的 Webhook URL 发送 HTTP POST 请求。`}
               actions={
                 canChangeWebhooks ? (
                   <Button variant="primary" look="filled" onClick={onAddWebhook}>
-                    添加 Webhook
+                    创建配置
                   </Button>
                 ) : (
                   <Typography variant="body" size="small">
-                    请联系管理员创建 Webhook
+                    请联系管理员创建 Webhook 配置
                   </Typography>
                 )
               }
@@ -125,7 +127,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 hover:underline"
-                      aria-label="了解更多 Webhook 信息（将在新窗口打开）"
+                      aria-label="了解更多 Webhook 配置信息（将在新窗口打开）"
                     >
                       了解更多
                       <IconExternal width={16} height={16} />
@@ -158,7 +160,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
       {webhooks.length > 0 && canChangeWebhooks && (
         <div className="flex justify-end w-full mt-base">
           <Button variant="primary" look="filled" onClick={onAddWebhook}>
-            添加 Webhook
+            添加配置
           </Button>
         </div>
       )}

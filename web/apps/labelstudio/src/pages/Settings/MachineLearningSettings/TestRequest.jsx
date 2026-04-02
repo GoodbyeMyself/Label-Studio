@@ -29,7 +29,7 @@ export const TestRequest = ({ backend }) => {
           sendTestRequest(backend);
         }}
       >
-        发送请求
+        发送测试请求
       </Button>
       <Typography size="smaller" className="my-tight">
         这会使用一个随机任务向机器学习后端的预测端点发送测试请求。

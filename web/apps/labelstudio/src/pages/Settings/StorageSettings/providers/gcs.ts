@@ -5,7 +5,7 @@ import { IconCloudProviderGCS } from "@humansignal/icons";
 export const gcsProvider: ProviderConfig = {
   name: "gcs",
   title: "Google Cloud Storage",
-  description: "配置 Google Cloud Storage 连接及所需的 Label Studio 设置",
+  description: "配置 Google Cloud Storage 连接及平台所需设置",
   icon: IconCloudProviderGCS,
   fields: [
     {

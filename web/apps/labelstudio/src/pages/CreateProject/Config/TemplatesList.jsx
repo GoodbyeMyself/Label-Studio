@@ -7,6 +7,7 @@ import { IconInfo } from "@humansignal/icons";
 import { Button, EnterpriseBadge } from "@humansignal/ui";
 
 const listClass = cn("templates-list");
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
 
 const Arrow = () => (
   <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +35,7 @@ const TemplatesInGroup = ({ templates, group, onSelectRecipe, isEdition }) => {
             key={recipe.title}
             onClick={() => !isDisabled && onSelectRecipe(recipe)}
             className={listClass.elem("template").mod({ disabled: isDisabled }).toClassName()}
-            title={isDisabled ? "企业版功能，仅在 Label Studio Enterprise 中可用" : ""}
+            title={isDisabled ? `企业版功能，仅在 ${APP_NAME} 企业版中可用` : ""}
           >
             <img src={recipe.image} alt={""} />
             <div className="flex flex-col items-center w-full">

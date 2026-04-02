@@ -5,7 +5,7 @@ import { IconCloudProviderRedis } from "@humansignal/icons";
 export const redisProvider: ProviderConfig = {
   name: "redis",
   title: "Redis 存储",
-  description: "配置 Redis 存储连接及所需的 Label Studio 设置",
+  description: "配置 Redis 存储连接及平台所需设置",
   icon: IconCloudProviderRedis,
   fields: [
     {

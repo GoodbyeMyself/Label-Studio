@@ -56,6 +56,12 @@ const actions = [
   },
 ] as const;
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+const EDITION_LABEL_MAP: Record<string, string> = {
+  Community: "社区版",
+  Enterprise: "企业版",
+};
+
 type Action = (typeof actions)[number]["type"];
 
 export const HomePage: Page = () => {
@@ -67,6 +73,8 @@ export const HomePage: Page = () => {
   const setProjectsData = useSetAtom(projectsDataAtom);
   const sortedProjects = useAtomValue(sortedProjectsAtom);
   const visitedIds = useAtomValue(visitedIdsAtom);
+  const edition = window?.APP_SETTINGS?.version?.edition;
+  const editionLabel = EDITION_LABEL_MAP[edition] ?? edition ?? "社区版";
 
   useUpdatePageTitle("首页");
 
@@ -220,7 +228,7 @@ export const HomePage: Page = () => {
           </SimpleCard>
           <div className="flex gap-2 items-center">
             <IconHumanSignal />
-            <span className="text-neutral-content-subtle">Label Studio 版本：社区版</span>
+            <span className="text-neutral-content-subtle">{APP_NAME} 版本：{editionLabel}</span>
           </div>
         </section>
       </div>

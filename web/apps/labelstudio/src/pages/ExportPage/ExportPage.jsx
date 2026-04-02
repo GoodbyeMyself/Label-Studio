@@ -25,6 +25,12 @@ const EXPORT_TIMEOUT_DOCS_URL = "https://labelstud.io/guide/export.html#Export-t
 const EXPORT_CONSOLE_DOCS_URL = "https://labelstud.io/guide/export.html#Export-using-console-command";
 const EXPORT_SNAPSHOT_SDK_URL = "https://api.labelstud.io/api-reference/api-reference/projects/exports/create";
 const ENTERPRISE_URL = "https://docs.humansignal.com/guide/label_studio_compare";
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+const TAG_LABEL_MAP = {
+  enterprise: "企业版",
+  beta: "测试版",
+  new: "新功能",
+};
 
 // const formats = {
 //   json: 'JSON',
@@ -243,7 +249,7 @@ const FormatInfo = ({ availableFormats, selected, onClick }) => {
 
                   return (
                     <Badge key={index} variant={variant} size="small">
-                      {tag}
+                      {TAG_LABEL_MAP[tagLower] ?? tag}
                     </Badge>
                   );
                 })}
@@ -295,7 +301,7 @@ const ExportLargeProjectWarning = ({ taskCount }) => {
         </a>{" "}
         或考虑使用{" "}
         <a className="no-go" href={ENTERPRISE_URL} target="_blank" rel="noreferrer">
-          Enterprise
+          {APP_NAME} 企业版
         </a>{" "}
         以支持大规模后台导出。
       </div>
@@ -378,7 +384,7 @@ const ExportTimeoutGuidance = ({ projectId, exportType }) => {
               <div className={cn("export-page").elem("timeout-action-content").toClassName()}>
                 如果需要在 UI 中进行大规模导出，可考虑使用{" "}
                 <a className="no-go" href={ENTERPRISE_URL} target="_blank" rel="noreferrer">
-                  Label Studio Enterprise
+                  {APP_NAME} 企业版
                   <IconExternal className={cn("export-page").elem("timeout-link-icon").toClassName()} />
                 </a>{" "}
                 ，它专为大规模项目和异步导出场景设计。

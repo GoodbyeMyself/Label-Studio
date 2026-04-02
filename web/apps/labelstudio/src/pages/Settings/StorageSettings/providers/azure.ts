@@ -5,7 +5,7 @@ import { z } from "zod";
 export const azureProvider: ProviderConfig = {
   name: "azure",
   title: "Azure Blob Storage",
-  description: "配置 Azure Blob Storage 连接及所需的 Label Studio 设置",
+  description: "配置 Azure Blob Storage 连接及平台所需设置",
   icon: IconCloudProviderAzure,
   fields: [
     {

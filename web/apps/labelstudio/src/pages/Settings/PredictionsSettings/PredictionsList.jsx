@@ -1,6 +1,7 @@
 import { useCallback, useContext } from "react";
 
 import { format, formatDistanceToNow, parseISO } from "date-fns";
+import { zhCN } from "date-fns/locale";
 import { Menu } from "../../../components";
 import { Button, Dropdown } from "@humansignal/ui";
 import { IconInfoOutline, IconPredictions, IconEllipsis } from "@humansignal/icons";
@@ -40,6 +41,7 @@ export const PredictionsList = ({ project, versions, fetchVersions }) => {
 
 const VersionCard = ({ version, selected, onSelect, editable, onDelete }) => {
   const rootClass = cn("prediction-card");
+  const versionLabel = version.model_version === "undefined" ? "未定义" : version.model_version;
 
   const confirmDelete = useCallback(
     (version) => {
@@ -59,7 +61,7 @@ const VersionCard = ({ version, selected, onSelect, editable, onDelete }) => {
     <div className={rootClass.toClassName()}>
       <div>
         <div className={rootClass.elem("title").toClassName()}>
-          {version.model_version}
+          {versionLabel}
           {version.model_version === "undefined" && (
             <Tooltip title="模型版本未定义。这通常表示导入预测结果时缺少 model_version 字段。">
               <IconInfoOutline className={cn("help-icon").toClassName()} width="14" height="14" />
@@ -77,6 +79,7 @@ const VersionCard = ({ version, selected, onSelect, editable, onDelete }) => {
               <span>
                 {formatDistanceToNow(parseISO(version.latest), {
                   addSuffix: true,
+                  locale: zhCN,
                 })}
               </span>
             </Tooltip>

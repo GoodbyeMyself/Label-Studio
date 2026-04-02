@@ -3,9 +3,11 @@ import { Alert, AlertTitle, AlertDescription } from "@humansignal/shad/component
 import { IconCloudProviderS3 } from "@humansignal/icons";
 import type { ProviderConfig } from "@humansignal/app-common/blocks/StorageProviderForm/types/provider";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+
 const s3sProvider: ProviderConfig = {
   name: "s3s",
-  title: "Amazon S3\n使用 IAM 角色",
+  title: "Amazon S3\n（IAM 角色）",
   description: "使用 IAM 角色访问方式配置 AWS S3 连接以提升安全性（仅代理模式）",
   icon: IconCloudProviderS3,
   disabled: true,
@@ -19,7 +21,7 @@ const s3sProvider: ProviderConfig = {
           <IconSpark />
           <AlertTitle>企业版功能</AlertTitle>
           <AlertDescription>
-            支持 IAM 角色的 Amazon S3 仅在 Label Studio Enterprise 中可用。{" "}
+            支持 IAM 角色的 Amazon S3 仅在 {APP_NAME} 企业版中可用。{" "}
             <a
               href="https://docs.humansignal.com/guide/storage.html#Set-up-an-S3-connection-with-IAM-role-access"
               target="_blank"

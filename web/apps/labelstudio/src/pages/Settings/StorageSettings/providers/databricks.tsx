@@ -3,10 +3,12 @@ import { Alert, AlertTitle, AlertDescription } from "@humansignal/shad/component
 import { IconCloudProviderDatabricks } from "@humansignal/icons";
 import type { ProviderConfig } from "@humansignal/app-common/blocks/StorageProviderForm/types/provider";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+
 const databricksProvider: ProviderConfig = {
   name: "databricks",
   title: "Databricks Files\n（UC Volumes）",
-  description: "配置 Databricks Unity Catalog Volumes 连接及所需设置（仅代理模式）",
+  description: "配置 Databricks Unity Catalog Volumes 连接及平台所需设置（仅代理模式）",
   icon: IconCloudProviderDatabricks,
   disabled: true,
   badge: <EnterpriseBadge />,
@@ -19,7 +21,7 @@ const databricksProvider: ProviderConfig = {
           <IconSpark />
           <AlertTitle>企业版功能</AlertTitle>
           <AlertDescription>
-            Databricks Files（UC Volumes）仅在 Label Studio Enterprise 中可用。{" "}
+            Databricks Files（UC Volumes）仅在 {APP_NAME} 企业版中可用。{" "}
             <a
               href="https://docs.humansignal.com/guide/storage.html#Databricks-Files-UC-Volumes"
               target="_blank"

@@ -3,10 +3,12 @@ import { Alert, AlertTitle, AlertDescription } from "@humansignal/shad/component
 import { IconCloudProviderGCS } from "@humansignal/icons";
 import type { ProviderConfig } from "@humansignal/app-common/blocks/StorageProviderForm/types/provider";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+
 const gcsWifProvider: ProviderConfig = {
   name: "gcswif",
   title: "Google Cloud Storage\n（WIF 认证）",
-  description: "使用 Workload Identity Federation 身份认证配置 Google Cloud Storage 连接（仅代理模式）",
+  description: "使用 Workload Identity Federation（WIF）身份认证配置 Google Cloud Storage 连接（仅代理模式）",
   icon: IconCloudProviderGCS,
   disabled: true,
   badge: <EnterpriseBadge />,
@@ -19,7 +21,7 @@ const gcsWifProvider: ProviderConfig = {
           <IconSpark />
           <AlertTitle>企业版功能</AlertTitle>
           <AlertDescription>
-            支持 Workload Identity Federation 的 Google Cloud Storage 仅在 Label Studio Enterprise 中可用。{" "}
+            支持 Workload Identity Federation 的 Google Cloud Storage 仅在 {APP_NAME} 企业版中可用。{" "}
             <a
               href="https://docs.humansignal.com/guide/storage.html#Google-Cloud-Storage-with-Workload-Identity-Federation-WIF"
               target="_blank"

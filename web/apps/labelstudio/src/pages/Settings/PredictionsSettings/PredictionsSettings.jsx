@@ -55,7 +55,7 @@ export const PredictionsSettings = () => {
               <a href="https://labelstud.io/guide/predictions.html" target="_blank" rel="noreferrer">
                 相关文档
               </a>
-              .
+              。
             </Typography>
           </>
         )}

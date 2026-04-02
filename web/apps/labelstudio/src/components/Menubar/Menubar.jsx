@@ -35,6 +35,7 @@ import { ff } from "@humansignal/core";
 import { openHotkeyHelp } from "@humansignal/app-common/pages/AccountSettings/sections/Hotkeys/Help";
 
 export const MenubarContext = createContext();
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
 
 const LeftContextMenu = ({ className }) => (
   <StaticContent id="context-menu-left" className={className}>
@@ -139,7 +140,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
         <div className={menubarClass}>
           <Dropdown.Trigger dropdown={menuDropdownRef} closeOnClickOutside={!sidebarPinned}>
             <div className={`${menubarClass.elem("trigger")} main-menu-trigger`}>
-              <LSLogo className={`${menubarClass.elem("logo")}`} alt="Label Studio Logo" />
+              <LSLogo className={`${menubarClass.elem("logo")}`} alt={`${APP_NAME} 标志`} />
               <Hamburger opened={sidebarOpened} />
             </div>
           </Dropdown.Trigger>

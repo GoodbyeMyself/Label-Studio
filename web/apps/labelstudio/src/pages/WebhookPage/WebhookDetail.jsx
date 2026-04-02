@@ -57,7 +57,7 @@ const WebhookForm = ({
       <Form.Row columnCount={1}>
         <Label text="载荷 URL" large />
         <div className="grid grid-cols-[1fr_135px] gap-tight">
-          <Input name="url" className="self-stretch w-auto" placeholder="请输入 URL" />
+          <Input name="url" className="self-stretch w-auto" placeholder="请输入 Webhook URL" />
           <div className="grid grid-flow-col auto-cols-max items-center justify-end gap-tight self-center">
             <span className="text-neutral-content">是否启用</span>
             <Toggle
@@ -175,7 +175,7 @@ const WebhookForm = ({
             type="button"
             variant="negative"
             look="outlined"
-            aria-label="删除 Webhook"
+            aria-label="删除 Webhook 配置"
             onClick={() =>
               WebhookDeleteModal({
                 onDelete: async () => {
@@ -188,7 +188,7 @@ const WebhookForm = ({
               })
             }
           >
-            删除 Webhook
+            删除配置
           </Button>
         )}
         <div className={rootClass.elem("status").toClassName()}>
@@ -200,15 +200,15 @@ const WebhookForm = ({
           type="button"
           className="ml-auto"
           onClick={onBack}
-          aria-label="取消编辑 Webhook"
+          aria-label="取消编辑 Webhook 配置"
         >
           取消
         </Button>
         <Button
           className={rootClass.elem("save-button").toClassName()}
-          aria-label={webhook === null ? "添加 Webhook" : "保存更改"}
+          aria-label={webhook === null ? "创建 Webhook 配置" : "保存 Webhook 配置更改"}
         >
-          {webhook === null ? "添加 Webhook" : "保存更改"}
+          {webhook === null ? "创建配置" : "保存更改"}
         </Button>
       </div>
     </Form>
@@ -318,10 +318,10 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
           onClick={() => onSelectActive(null)}
           className="cursor-pointer text-neutral-content-subtler hover:text-neutral-content-subtle"
         >
-          Webhook
+          Webhook 配置
         </Typography>
         <Typography variant="headline" size="medium" className="text-neutral-content-subtler">
-          / {webhook === null ? "新建 Webhook" : "编辑 Webhook"}
+          / {webhook === null ? "新建配置" : "编辑配置"}
         </Typography>
       </header>
       <div className="mt-base">

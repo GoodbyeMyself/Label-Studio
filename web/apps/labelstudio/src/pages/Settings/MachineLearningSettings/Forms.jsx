@@ -27,7 +27,7 @@ const CustomBackendForm = ({ action, backend, project, onSubmit }) => {
       </Form.Row>
 
       <Form.Row columnCount={1}>
-        <Input name="url" label="后端 URL" required />
+        <Input name="url" label="服务地址" required />
       </Form.Row>
 
       <Form.Row columnCount={2}>
@@ -57,7 +57,7 @@ const CustomBackendForm = ({ action, backend, project, onSubmit }) => {
       <Form.Row columnCount={1}>
         <TextArea
           name="extra_params"
-          label="模型连接时传递的额外参数"
+          label="连接模型时传递的额外参数"
           style={{ minHeight: 120 }}
         />
       </Form.Row>

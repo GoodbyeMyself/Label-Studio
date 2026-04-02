@@ -524,8 +524,8 @@ Form.Builder = React.forwardRef(
         {children}
         {props.autosubmit !== true && withActions === true && (
           <Form.Actions>
-            <Button type="submit" className="w-[120px]" aria-label="Submit form">
-              Save
+            <Button type="submit" className="w-[120px]" aria-label="提交表单">
+              保存
             </Button>
           </Form.Actions>
         )}
@@ -553,7 +553,7 @@ Form.Indicator = () => {
     <div className={cn("form-indicator").toClassName()}>
       <Oneof value={state}>
         <span className={cn("form-indicator").elem("item").mod({ type: state }).toClassName()} case="success">
-          Saved!
+          已保存！
         </span>
       </Oneof>
     </div>

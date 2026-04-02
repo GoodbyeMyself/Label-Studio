@@ -381,9 +381,9 @@ export const ImportPage = ({
           method="POST"
           onSubmit={onLoadURL}
         >
-          <Input placeholder="数据集 URL" name="url" ref={urlRef} rawClassName="h-[40px]" />
-          <Button variant="primary" look="outlined" type="submit" aria-label="添加 URL">
-            添加 URL
+          <Input placeholder="数据集链接" name="url" ref={urlRef} rawClassName="h-[40px]" />
+          <Button variant="primary" look="outlined" type="submit" aria-label="添加链接">
+            添加链接
           </Button>
         </form>
         <span>或</span>
@@ -406,7 +406,7 @@ export const ImportPage = ({
             .mod({ highlighted: highlightCsvHandling, hidden: !csvHandling })
             .toClassName()}
         >
-          <span>将 CSV/TSV 视为</span>
+          <span>将 CSV/TSV 文件视为</span>
           <label>
             <input {...csvProps} value="tasks" checked={csvHandling === "tasks"} /> 任务列表
           </label>

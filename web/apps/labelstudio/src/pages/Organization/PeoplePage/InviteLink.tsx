@@ -8,6 +8,8 @@ import { atomWithQuery } from "jotai-tanstack-query";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Input } from "../../../components/Form";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
+
 const linkAtom = atomWithQuery(() => ({
   queryKey: ["invite-link"],
   async queryFn() {
@@ -57,7 +59,7 @@ const InvitationModal = () => {
     <div className={cn("invite").toClassName()}>
       <Input value={link} style={{ width: "100%" }} readOnly />
       <Typography size="small" className="text-neutral-content-subtler mt-base mb-wider">
-        邀请成员加入你的 Label Studio 实例。被邀请的人将拥有你所有项目的完整访问权限。{" "}
+        邀请成员加入你的 {APP_NAME} 实例。被邀请的人将拥有你所有项目的完整访问权限。{" "}
         <a
           href="https://labelstud.io/guide/signup.html"
           target="_blank"
@@ -71,7 +73,7 @@ const InvitationModal = () => {
         >
           了解更多
         </a>
-        .
+        。
       </Typography>
     </div>
   );

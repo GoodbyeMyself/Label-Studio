@@ -3,6 +3,7 @@ import type { ProviderConfig } from "@humansignal/app-common/blocks/StorageProvi
 import { IconFolderOpen } from "@humansignal/icons";
 import { Alert, AlertDescription, AlertTitle } from "@humansignal/shad/components/ui/alert";
 
+const APP_NAME = window?.APP_SETTINGS?.app_name || "Label Studio";
 const localFilesDocumentRoot =
   typeof window === "undefined" ? undefined : window.APP_SETTINGS?.local_files_document_root;
 const localFilesServingEnabled =
@@ -14,8 +15,8 @@ const defaultPathExample = localFilesDocumentRoot
   ? `${trimTrailingSeparators(localFilesDocumentRoot)}/your-subdirectory`
   : undefined;
 const pathDescription = localFilesDocumentRoot
-  ? `该路径必须是运行 Label Studio 的主机上的绝对路径，并且以\n"${localFilesDocumentRoot}"（LOCAL_FILES_DOCUMENT_ROOT）开头。`
-  : "该路径必须是运行 Label Studio 的主机上的绝对路径。";
+  ? `该路径必须是运行 ${APP_NAME} 的主机上的绝对路径，并且以\n"${localFilesDocumentRoot}"（LOCAL_FILES_DOCUMENT_ROOT）开头。`
+  : `该路径必须是运行 ${APP_NAME} 的主机上的绝对路径。`;
 
 const pathSchema = defaultPathExample
   ? z.string().min(1, "路径不能为空").default(defaultPathExample)
@@ -27,7 +28,7 @@ const LocalFilesServingWarning = () => {
     <Alert variant="destructive">
       <AlertTitle>本地文件服务未启用</AlertTitle>
       <AlertDescription>
-        将环境变量 "LOCAL_FILES_SERVING_ENABLED" 设置为 "true" 并重启 Label Studio，以启用本地文件存储。详情请参阅：
+        将环境变量 "LOCAL_FILES_SERVING_ENABLED" 设置为 "true" 并重启 {APP_NAME}，以启用本地文件存储。详情请参阅：
         {" "}
         <a href="https://labelstud.io/guide/storage.html#Local-storage" target="_blank" rel="noreferrer">
           本地存储文档
@@ -35,7 +36,7 @@ const LocalFilesServingWarning = () => {
         {isCommunityEdition && (
           <Alert variant="info">
             <AlertDescription>
-              <p>提示：在你运行 Label Studio 的命令所在目录旁创建 "mydata" 或 "label-studio-data" 目录，即可自动启用本地文件服务。</p>
+              <p>提示：在你运行 {APP_NAME} 的命令所在目录旁创建 "mydata" 或 "label-studio-data" 目录，即可自动启用本地文件服务。</p>
               <p>
                 如果你使用 Docker 镜像运行，应用会在 "/label-studio" 启动，因此可以将宿主机目录绑定挂载到容器内的
                 "/label-studio/mydata" 或 "/label-studio/label-studio-data"，无需额外配置即可启用本地文件服务。
@@ -51,7 +52,7 @@ const LocalFilesServingWarning = () => {
 export const localFilesProvider: ProviderConfig = {
   name: "localfiles",
   title: "本地文件",
-  description: "配置本地文件存储连接及所需的 Label Studio 设置",
+  description: "配置本地文件存储连接及平台所需设置",
   icon: () => (
     <IconFolderOpen
       width={40}
