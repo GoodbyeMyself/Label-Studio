@@ -30,7 +30,7 @@ const IconDot = ({ size }) => {
 const ToolView = observer(({ item }) => {
   return (
     <Tool
-      label="Eraser"
+      label="橡皮擦"
       ariaLabel="eraser"
       shortcut="tool:eraser"
       active={item.selected}
@@ -85,13 +85,13 @@ const _Tool = types
     get extraShortcuts() {
       return {
         "tool:decrease-tool": [
-          "Decrease size",
+          "减小橡皮大小",
           () => {
             self.setStroke(clamp(self.strokeWidth - 5, MIN_SIZE, MAX_SIZE));
           },
         ],
         "tool:increase-tool": [
-          "Increase size",
+          "增大橡皮大小",
           () => {
             self.setStroke(clamp(self.strokeWidth + 5, MIN_SIZE, MAX_SIZE));
           },

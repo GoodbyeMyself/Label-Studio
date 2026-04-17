@@ -255,7 +255,7 @@ const IconCatalog = () => {
       <div className="search-container">
         <input
           type="text"
-          placeholder="Search icons by name or file name..."
+          placeholder="按名称或文件名搜索图标..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="p-2 rounded border border-neutral-border bg-neutral-background text-neutral-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-focus-outline w-full text-sm mb-4"
@@ -271,7 +271,7 @@ const IconCatalog = () => {
         })}
       </div>
       {filteredIcons.length === 0 && (
-        <div className="text-center my-10 text-neutral-content-subtle">No icons found matching "{searchTerm}"</div>
+        <div className="text-center my-10 text-neutral-content-subtle">未找到匹配“{searchTerm}”的图标</div>
       )}
     </div>
   );
@@ -326,7 +326,7 @@ const IconCatalogByCategory = () => {
       <div className="search-container mb-5">
         <input
           type="text"
-          placeholder="Search icons by name, file name, or category..."
+          placeholder="按名称、文件名或分类搜索图标..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="p-2 rounded border border-neutral-border bg-neutral-background text-neutral-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-focus-outline w-full text-sm mb-4"
@@ -339,7 +339,7 @@ const IconCatalogByCategory = () => {
             {category} ({icons.length})
           </h2>
           <p className="text-sm mb-4 text-neutral-content-subtle">
-            {categoryDescriptions[category] || "Icons in this category"}
+            {categoryDescriptions[category] || "该分类下的图标"}
           </p>
 
           <div className="icons-grid grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-5">
@@ -351,7 +351,7 @@ const IconCatalogByCategory = () => {
       ))}
 
       {filteredCategories.length === 0 && (
-        <div className="text-center my-10 text-neutral-content-subtle">No icons found matching "{searchTerm}"</div>
+        <div className="text-center my-10 text-neutral-content-subtle">未找到匹配“{searchTerm}”的图标</div>
       )}
     </div>
   );

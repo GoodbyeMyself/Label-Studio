@@ -73,7 +73,7 @@ const MenuContent = ({ items = 3, fullWidth = false }: { items?: number; fullWid
         className={`w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle ${fullWidth ? "" : "whitespace-nowrap"}`}
         onClick={() => console.log(`Item ${i + 1} clicked`)}
       >
-        Menu Item {i + 1}
+        菜单项 {i + 1}
       </button>
     ))}
   </div>
@@ -89,7 +89,7 @@ export const Default: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button>Click to Open</Button>
+      <Button>点击打开</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -101,23 +101,23 @@ export const WithCustomContent: Story = {
       content={
         <div className="w-80 p-base flex flex-col gap-base">
           <div>
-            <h3 className="text-heading-small font-medium text-primary-foreground mb-tight">Custom Dropdown</h3>
+            <h3 className="text-heading-small font-medium text-primary-foreground mb-tight">自定义下拉菜单</h3>
             <p className="text-body-small text-secondary-foreground">
-              This is a custom dropdown with rich content including text and interactive elements.
+              这是一个带有富文本和交互元素的自定义下拉菜单。
             </p>
           </div>
           <div className="flex flex-col gap-tight">
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="搜索..."
               className="w-full px-base py-tight border border-neutral-border rounded-base bg-primary-background text-primary-foreground"
             />
-            <Button className="w-full">Submit</Button>
+            <Button className="w-full">提交</Button>
           </div>
         </div>
       }
     >
-      <Button>Open Custom Dropdown</Button>
+      <Button>打开自定义下拉菜单</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -158,7 +158,7 @@ export const SyncWidth: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent fullWidth />}>
-      <Button className="w-80">Wide Button - Dropdown Syncs Width</Button>
+      <Button className="w-80">宽按钮 - 下拉宽度同步</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -171,7 +171,7 @@ export const ConstrainHeight: Story = {
   render: (args) => (
     <div className="h-[200px] flex items-center">
       <Dropdown.Trigger {...args} content={<MenuContent items={100} />}>
-        <Button>Constrained Height (many items)</Button>
+        <Button>限制高度（大量项目）</Button>
       </Dropdown.Trigger>
     </div>
   ),
@@ -184,7 +184,7 @@ export const WithAnimation: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button>Animated Dropdown</Button>
+      <Button>带动画下拉菜单</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -195,7 +195,7 @@ export const WithoutAnimation: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button>Non-Animated Dropdown</Button>
+      <Button>无动画下拉菜单</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -207,7 +207,7 @@ export const DisabledTrigger: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button disabled>Disabled Trigger</Button>
+      <Button disabled>禁用触发器</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -218,7 +218,7 @@ export const DisabledDropdown: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button>Dropdown Disabled (Click Won't Open)</Button>
+      <Button>下拉已禁用（点击不打开）</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -230,12 +230,12 @@ export const ControlledVisibility: Story = {
     return (
       <Space direction="vertical" size="base">
         <Space direction="horizontal" size="tight">
-          <Button onClick={() => setVisible(true)}>Open Dropdown</Button>
-          <Button onClick={() => setVisible(false)}>Close Dropdown</Button>
-          <Button onClick={() => setVisible(!visible)}>Toggle Dropdown</Button>
+          <Button onClick={() => setVisible(true)}>打开下拉</Button>
+          <Button onClick={() => setVisible(false)}>关闭下拉</Button>
+          <Button onClick={() => setVisible(!visible)}>切换下拉</Button>
         </Space>
         <Dropdown.Trigger {...args} visible={visible} onToggle={setVisible} content={<MenuContent />}>
-          <Button>Controlled Dropdown</Button>
+          <Button>受控下拉菜单</Button>
         </Dropdown.Trigger>
       </Space>
     );
@@ -249,7 +249,7 @@ export const OpenOnlyMode: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button>Click Only Opens (Doesn't Toggle)</Button>
+      <Button>仅点击打开（不切换）</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -260,7 +260,7 @@ export const NoCloseOnClickOutside: Story = {
   },
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
-      <Button>Won't Close on Outside Click</Button>
+      <Button>点击外部不关闭</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -277,7 +277,7 @@ export const NestedDropdowns: Story = {
             type="button"
             className="w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle whitespace-nowrap"
           >
-            Regular Item
+            常规项
           </button>
           <Dropdown.Trigger
             style={{
@@ -292,19 +292,19 @@ export const NestedDropdowns: Story = {
                   type="button"
                   className="w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle whitespace-nowrap"
                 >
-                  Nested Item 1
+                  嵌套项 1
                 </button>
                 <button
                   type="button"
                   className="w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle whitespace-nowrap"
                 >
-                  Nested Item 2
+                  嵌套项 2
                 </button>
                 <button
                   type="button"
                   className="w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle whitespace-nowrap"
                 >
-                  Nested Item 3
+                  嵌套项 3
                 </button>
               </div>
             }
@@ -313,19 +313,19 @@ export const NestedDropdowns: Story = {
               type="button"
               className="w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle whitespace-nowrap"
             >
-              Nested Dropdown →
+              嵌套下拉菜单 →
             </button>
           </Dropdown.Trigger>
           <button
             type="button"
             className="w-full text-left px-base py-tight text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle whitespace-nowrap"
           >
-            Another Item
+            其他项
           </button>
         </div>
       }
     >
-      <Button>Nested Dropdowns</Button>
+      <Button>嵌套下拉菜单</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -338,10 +338,10 @@ export const InlineDropdown: Story = {
   render: (args) => (
     <div className="relative border border-dashed border-neutral-border p-loose rounded-base">
       <p className="text-body-small text-secondary-foreground mb-base">
-        This dropdown renders inline (no portal) within this bordered container.
+        该下拉菜单以内联方式渲染（不使用 portal），位于当前边框容器内。
       </p>
       <Dropdown.Trigger {...args} content={<MenuContent />}>
-        <Button>Inline Dropdown</Button>
+        <Button>内联下拉菜单</Button>
       </Dropdown.Trigger>
     </div>
   ),
@@ -352,7 +352,7 @@ export const WithCustomTrigger: Story = {
   render: (args) => (
     <Dropdown.Trigger {...args} content={<MenuContent />}>
       <div className="cursor-pointer bg-accent-background text-accent-foreground px-base py-tight rounded-base hover:bg-accent-surface-hover transition-colors">
-        Custom Trigger Element
+        自定义触发元素
       </div>
     </Dropdown.Trigger>
   ),
@@ -366,7 +366,7 @@ export const WithCallbacks: Story = {
       onToggle={(visible) => console.log("onToggle:", visible)}
       onVisibilityChanged={(visible) => console.log("onVisibilityChanged:", visible)}
     >
-      <Button>Dropdown with Callbacks (Check Console)</Button>
+      <Button>带回调的下拉菜单（查看控制台）</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -379,14 +379,14 @@ export const UserProfileMenu: Story = {
       content={
         <div className="w-96 p-base flex flex-col gap-base">
           <div className="pb-base border-b border-neutral-border">
-            <h3 className="text-heading-small font-medium text-primary-foreground">User Profile</h3>
+            <h3 className="text-heading-small font-medium text-primary-foreground">用户资料</h3>
           </div>
           <div className="flex items-center gap-base pb-base border-b border-neutral-border">
             <div className="w-12 h-12 bg-accent-background rounded-full flex items-center justify-center text-accent-foreground font-medium text-body-large">
               JD
             </div>
             <div className="flex flex-col gap-tightest">
-              <div className="text-body-medium font-medium text-primary-foreground">John Doe</div>
+              <div className="text-body-medium font-medium text-primary-foreground">张三</div>
               <div className="text-body-small text-secondary-foreground">john.doe@example.com</div>
             </div>
           </div>
@@ -396,21 +396,21 @@ export const UserProfileMenu: Story = {
               className="flex items-center gap-tight w-full text-left px-base py-1 text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle"
             >
               <IconUserEdit className="w-4 h-4" />
-              View Profile
+              查看资料
             </button>
             <button
               type="button"
               className="flex items-center gap-tight w-full text-left px-base py-1 text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle"
             >
               <IconSettings className="w-4 h-4" />
-              Settings
+              设置
             </button>
             <button
               type="button"
               className="flex items-center gap-tight w-full text-left px-base py-1 text-body-small text-neutral-content-subtle hover:bg-primary-emphasis-subtle hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-primary-emphasis-subtle"
             >
               <IconBell className="w-4 h-4" />
-              Notifications
+              通知
             </button>
           </div>
           <div className="pt-base border-t border-neutral-border">
@@ -419,13 +419,13 @@ export const UserProfileMenu: Story = {
               className="flex items-center gap-tight w-full text-left px-base py-1 text-body-small text-danger-foreground hover:bg-danger-surface hover:cursor-pointer rounded-base transition-all duration-150 ease-out outline-none focus-visible:bg-danger-surface"
             >
               <IconCross className="w-4 h-4" />
-              Sign Out
+              退出登录
             </button>
           </div>
         </div>
       }
     >
-      <Button trailing={<IconChevronDown />}>User Menu</Button>
+      <Button trailing={<IconChevronDown />}>用户菜单</Button>
     </Dropdown.Trigger>
   ),
 };
@@ -435,13 +435,13 @@ export const MultipleDropdowns: Story = {
   render: (args) => (
     <Space direction="horizontal" size="base" wrap>
       <Dropdown.Trigger {...args} alignment="bottom-left" content={<MenuContent />}>
-        <Button>Dropdown 1</Button>
+        <Button>下拉菜单 1</Button>
       </Dropdown.Trigger>
       <Dropdown.Trigger {...args} alignment="bottom-center" content={<MenuContent />}>
-        <Button>Dropdown 2</Button>
+        <Button>下拉菜单 2</Button>
       </Dropdown.Trigger>
       <Dropdown.Trigger {...args} alignment="bottom-right" content={<MenuContent />}>
-        <Button>Dropdown 3</Button>
+        <Button>下拉菜单 3</Button>
       </Dropdown.Trigger>
     </Space>
   ),
@@ -451,9 +451,9 @@ export const MultipleDropdowns: Story = {
 export const WithLabels: Story = {
   render: (args) => (
     <Space direction="vertical" size="small" style={{ gridGap: "var(--spacing-base)" }}>
-      <Label>Select an option</Label>
+      <Label>选择一个选项</Label>
       <Dropdown.Trigger {...args} content={<MenuContent items={5} />}>
-        <Button>Open Menu</Button>
+        <Button>打开菜单</Button>
       </Dropdown.Trigger>
     </Space>
   ),

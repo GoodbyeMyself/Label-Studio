@@ -56,23 +56,23 @@ const DebugComponent = ({ store }) => {
   return (
     <div style={{ width: "100%" }}>
       <br />
-      <h2>Debug</h2>
+      <h2>调试</h2>
       <div>
-        <Button size="small" onClick={serializeAll} aria-label="Serialize all">
-          Serialize All Annotations
+        <Button size="small" onClick={serializeAll} aria-label="序列化全部">
+          序列化全部标注
         </Button>
-        <Button size="small" onClick={serializeCurrent} aria-label="Serialize current">
-          Serialize Current Annotation
+        <Button size="small" onClick={serializeCurrent} aria-label="序列化当前">
+          序列化当前标注
         </Button>
-        <Button size="small" onClick={loadTask} aria-label="Load task">
-          Simulate Loading Task
+        <Button size="small" onClick={loadTask} aria-label="加载任务">
+          模拟加载任务
         </Button>
       </div>
 
       <Form>
         <div style={{ display: "flex" }}>
           <div style={{ flexBasis: "50%" }}>
-            <p>Data</p>
+            <p>数据</p>
             <textarea
               style={{ width: "100%" }}
               ref={refData}
@@ -80,7 +80,7 @@ const DebugComponent = ({ store }) => {
               defaultValue={store.task.data}
               className="is-search"
             />
-            <p>Config</p>
+            <p>配置</p>
             <textarea
               style={{ width: "100%" }}
               ref={refConfig}
@@ -90,7 +90,7 @@ const DebugComponent = ({ store }) => {
             />
           </div>
           <div style={{ flexBasis: "50%" }}>
-            <p>Annotations</p>
+            <p>标注</p>
             <textarea
               style={{ width: "100%" }}
               ref={refAnnotations}

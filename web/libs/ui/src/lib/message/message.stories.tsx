@@ -220,7 +220,7 @@ export const WithLink: Story = {
         <Typography>Visit our documentation to learn more about this feature.</Typography>
         <Typography variant="label" size="small" className="text-primary-link">
           <a href="/docs" className="inline-flex items-center gap-1 hover:underline">
-            View Documentation
+            查看文档
             <IconExternal width={16} height={16} />
           </a>
         </Typography>
@@ -233,24 +233,24 @@ export const WithLink: Story = {
 export const AllVariants: Story = {
   render: () => (
     <div className="space-y-4">
-      <Message variant="primary" title="Primary">
-        This is a primary informational message.
+      <Message variant="primary" title="主要">
+        这是一条主要信息提示。
       </Message>
 
-      <Message variant="neutral" title="Neutral">
-        This is a neutral message.
+      <Message variant="neutral" title="中性">
+        这是一条中性提示信息。
       </Message>
 
-      <Message variant="negative" title="Negative">
-        This is a negative error message.
+      <Message variant="negative" title="错误">
+        这是一条错误提示信息。
       </Message>
 
-      <Message variant="positive" title="Positive">
-        This is a positive success message.
+      <Message variant="positive" title="成功">
+        这是一条成功提示信息。
       </Message>
 
-      <Message variant="warning" title="Warning">
-        This is a warning message.
+      <Message variant="warning" title="警告">
+        这是一条警告提示信息。
       </Message>
     </div>
   ),

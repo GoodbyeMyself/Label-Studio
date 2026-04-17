@@ -34,10 +34,10 @@ type Story = StoryObj<typeof CollapsiblePanel>;
 export const Default: Story = {
   args: {
     variant: "default",
-    title: "Panel Title",
+    title: "面板标题",
     children: (
       <div className="p-base">
-        <p className="text-sm">This is the panel content that can be collapsed or expanded.</p>
+        <p className="text-sm">这里是可折叠/展开的面板内容。</p>
       </div>
     ),
   },
@@ -51,10 +51,10 @@ export const Default: Story = {
 export const Primary: Story = {
   args: {
     variant: "primary",
-    title: "Select at least one member",
+    title: "请至少选择一名成员",
     children: (
       <div className="p-base">
-        <p className="text-sm text-neutral-content-subtle">Selected members will appear here</p>
+        <p className="text-sm text-neutral-content-subtle">已选择成员会显示在这里</p>
       </div>
     ),
   },
@@ -68,11 +68,11 @@ export const Primary: Story = {
 export const WithCount: Story = {
   args: {
     variant: "primary",
-    title: "members selected",
+    title: "已选择成员",
     count: 5,
     children: (
       <div className="p-base">
-        <p className="text-sm">John Doe, Jane Smith, Bob Johnson, Alice Brown, Charlie Wilson</p>
+        <p className="text-sm">张三、李四、王五、赵六、钱七</p>
       </div>
     ),
   },
@@ -86,15 +86,15 @@ export const WithCount: Story = {
 export const WithActions: Story = {
   args: {
     variant: "primary",
-    title: "3 members selected",
+    title: "已选择 3 名成员",
     actions: (
       <Button variant="neutral" look="outlined" size="small">
-        Clear Selection
+        清空选择
       </Button>
     ),
     children: (
       <div className="p-base">
-        <p className="text-sm">John Doe, Jane Smith, Bob Johnson</p>
+        <p className="text-sm">张三、李四、王五</p>
       </div>
     ),
   },
@@ -108,14 +108,14 @@ export const WithActions: Story = {
 export const WithEmptyState: Story = {
   args: {
     variant: "primary",
-    title: "No members selected",
+    title: "未选择成员",
     children: (
       <EmptyState
         className="p-widest"
         size="small"
         icon={<IconUserAdd />}
-        title="Select members from below"
-        description="Select members to assign them to this resource"
+        title="请从下方选择成员"
+        description="选择成员后可分配到该资源"
       />
     ),
   },
@@ -130,12 +130,12 @@ export const WithEmptyState: Story = {
 export const ToggleDisabled: Story = {
   args: {
     variant: "primary",
-    title: "John, Jane, Bob, Alice, Charlie +10 selected",
+    title: "张三、李四、王五、赵六、钱七 +10 已选择",
     disableToggle: true,
     expanded: false,
     actions: (
       <Button variant="neutral" look="outlined" size="small">
-        Clear Selection
+        清空选择
       </Button>
     ),
     children: null,
@@ -150,18 +150,18 @@ export const ToggleDisabled: Story = {
 export const StartsCollapsed: Story = {
   args: {
     variant: "default",
-    title: "Advanced Settings",
+    title: "高级设置",
     defaultExpanded: false,
     children: (
       <div className="p-base">
         <div className="flex flex-col gap-3">
           <div>
-            <label className="text-sm font-medium mb-1 block">Setting 1</label>
-            <input type="text" className="border rounded px-2 py-1 w-full" />
+            <label className="text-sm font-medium mb-1 block">设置项 1</label>
+            <input type="text" className="border rounded px-2 py-1 w-full" aria-label="设置项1输入框" />
           </div>
           <div>
-            <label className="text-sm font-medium mb-1 block">Setting 2</label>
-            <input type="text" className="border rounded px-2 py-1 w-full" />
+            <label className="text-sm font-medium mb-1 block">设置项 2</label>
+            <input type="text" className="border rounded px-2 py-1 w-full" aria-label="设置项2输入框" />
           </div>
         </div>
       </div>
@@ -182,23 +182,23 @@ export const Controlled: Story = {
       <div className="flex flex-col gap-4">
         <div className="flex gap-2">
           <Button size="small" onClick={() => setIsExpanded(true)}>
-            Expand
+            展开
           </Button>
           <Button size="small" onClick={() => setIsExpanded(false)}>
-            Collapse
+            收起
           </Button>
           <span className="text-sm text-neutral-content-subtle self-center">
-            Current state: {isExpanded ? "Expanded" : "Collapsed"}
+            当前状态：{isExpanded ? "已展开" : "已收起"}
           </span>
         </div>
         <CollapsiblePanel
           variant="default"
-          title="Controlled Panel"
+          title="受控面板"
           expanded={isExpanded}
           onExpandedChange={setIsExpanded}
         >
           <div className="p-base">
-            <p className="text-sm">This panel's state is controlled by the buttons above.</p>
+            <p className="text-sm">该面板状态由上方按钮控制。</p>
           </div>
         </CollapsiblePanel>
       </div>
@@ -215,19 +215,19 @@ export const MultiplePanels: Story = {
   render: () => {
     return (
       <div className="flex flex-col gap-3">
-        <CollapsiblePanel variant="primary" title="Selection Panel" count={3}>
+        <CollapsiblePanel variant="primary" title="选择面板" count={3}>
           <div className="p-base">
-            <p className="text-sm">John Doe, Jane Smith, Bob Johnson</p>
+            <p className="text-sm">张三、李四、王五</p>
           </div>
         </CollapsiblePanel>
-        <CollapsiblePanel variant="default" title="Filters" defaultExpanded={false}>
+        <CollapsiblePanel variant="default" title="筛选条件" defaultExpanded={false}>
           <div className="p-base">
-            <p className="text-sm">Filter options would go here</p>
+            <p className="text-sm">筛选选项会显示在这里</p>
           </div>
         </CollapsiblePanel>
-        <CollapsiblePanel variant="default" title="Settings" defaultExpanded={false}>
+        <CollapsiblePanel variant="default" title="设置" defaultExpanded={false}>
           <div className="p-base">
-            <p className="text-sm">Settings options would go here</p>
+            <p className="text-sm">设置项会显示在这里</p>
           </div>
         </CollapsiblePanel>
       </div>

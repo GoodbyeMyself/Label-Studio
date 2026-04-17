@@ -29,7 +29,7 @@ export const Default: Story = {
     totalPages: 10,
     pageSize: 20,
     totalItems: 200,
-    label: "Items",
+    label: "条目",
     allowInput: true,
     allowRewind: true,
     disabled: false,
@@ -51,7 +51,7 @@ export const Interactive: Story = {
       <div className="flex flex-col gap-4">
         <div className="p-4 bg-neutral-surface rounded-md">
           <p className="text-sm text-neutral-content-subtle">
-            Try navigating pages, changing page size, or clicking on the page number to edit it directly.
+            可尝试翻页、切换每页数量，或点击页码直接输入跳转。
           </p>
         </div>
         <Pagination
@@ -60,7 +60,7 @@ export const Interactive: Story = {
           totalPages={totalPages}
           pageSize={pageSize}
           totalItems={totalItems}
-          label="Members"
+          label="成员"
           onPageChange={setCurrentPage}
           onPageSizeChange={(newSize) => {
             setPageSize(newSize);
@@ -78,7 +78,7 @@ export const WithoutRewindButtons: Story = {
     totalPages: 10,
     pageSize: 20,
     totalItems: 200,
-    label: "Projects",
+    label: "项目",
     allowRewind: false,
   },
 };
@@ -89,7 +89,7 @@ export const WithoutPageSizeSelector: Story = {
     totalPages: 10,
     pageSize: 20,
     totalItems: 200,
-    label: "Tasks",
+    label: "任务",
     showPageSize: false,
   },
 };
@@ -110,7 +110,7 @@ export const Disabled: Story = {
     totalPages: 10,
     pageSize: 20,
     totalItems: 200,
-    label: "Items",
+    label: "条目",
     disabled: true,
   },
 };
@@ -121,7 +121,7 @@ export const SinglePage: Story = {
     totalPages: 1,
     pageSize: 20,
     totalItems: 15,
-    label: "Items",
+    label: "条目",
   },
 };
 
@@ -131,7 +131,7 @@ export const AlwaysVisibleWithSinglePage: Story = {
     totalPages: 1,
     pageSize: 20,
     totalItems: 15,
-    label: "Items",
+    label: "条目",
     alwaysVisible: true,
   },
 };
@@ -142,7 +142,7 @@ export const LargeDataset: Story = {
     totalPages: 500,
     pageSize: 50,
     totalItems: 25000,
-    label: "Records",
+    label: "记录",
     pageSizeOptions: [25, 50, 100, 250, 500],
   },
 };

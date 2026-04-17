@@ -83,7 +83,7 @@ export const Default: Story = {
           options={sampleTags}
           value={value}
           onChange={setValue as any}
-          placeholder="Type at least 2 characters to search..."
+          placeholder="输入至少 2 个字符进行搜索..."
         />
         <div className="mt-base">
           <Typography variant="body" size="small" className="text-neutral-content-subtle">
@@ -141,7 +141,7 @@ export const SimpleStrings: Story = {
           options={simpleTags}
           value={value}
           onChange={setValue as any}
-          placeholder="Select frameworks..."
+          placeholder="选择框架..."
         />
       </div>
     );
@@ -171,7 +171,7 @@ export const MultipleTagsWrapping: Story = {
           options={sampleTags}
           value={value}
           onChange={setValue as any}
-          placeholder="Type to search..."
+          placeholder="输入以搜索..."
         />
         <Typography variant="body" size="small" className="mt-tight text-neutral-content-subtle">
           All {value.length} tags are shown and wrap to multiple lines
@@ -226,7 +226,7 @@ export const FormValidationPattern: Story = {
           options={sampleTags}
           value={value}
           onChange={handleChange as any}
-          placeholder="Select 1-3 skills..."
+          placeholder="选择 1-3 项技能..."
         />
         {touched && error && <div className="mt-tight text-xs text-danger-content">{error}</div>}
         <Typography variant="body" size="small" className="mt-tight text-neutral-content-subtle">
@@ -265,7 +265,7 @@ export const LoadingState: Story = {
           options={sampleTags}
           value={value}
           onChange={setValue as any}
-          placeholder="Type to search..."
+          placeholder="输入以搜索..."
           isLoading={true}
           minSearchLength={1}
         />
@@ -308,7 +308,7 @@ export const AsyncSearch: Story = {
           onChange={setValue as any}
           onSearch={handleSearch}
           isLoading={isLoading}
-          placeholder="Type to search (simulated 500ms delay)..."
+          placeholder="输入以搜索（模拟 500ms 延迟）..."
         />
       </div>
     );
@@ -331,7 +331,7 @@ export const WithTagCreation: Story = {
           value={value}
           onChange={setValue as any}
           allowCreate={true}
-          placeholder="Type to search or create new tags..."
+          placeholder="输入以搜索或创建新标签..."
         />
         <Typography variant="body" size="small" className="mt-base text-neutral-content-subtle">
           Selected: {value.join(", ")}
@@ -354,7 +354,7 @@ export const Disabled: Story = {
           options={sampleTags}
           value={["frontend", "backend"]}
           onChange={() => {}}
-          placeholder="Select tags..."
+          placeholder="选择标签..."
           disabled
         />
       </div>
@@ -376,7 +376,7 @@ export const EmptyState: Story = {
           options={sampleTags}
           value={value}
           onChange={setValue as any}
-          placeholder="Click or type to add tags..."
+          placeholder="点击或输入以添加标签..."
         />
       </div>
     );
@@ -406,7 +406,7 @@ export const DisabledOptions: Story = {
           options={optionsWithDisabled}
           value={value}
           onChange={setValue as any}
-          placeholder="Select tags..."
+          placeholder="选择标签..."
         />
         <Typography variant="body" size="small" className="mt-tight text-neutral-content-subtle">
           DevOps and QA options are disabled
@@ -466,7 +466,7 @@ export const InFormContext: Story = {
                 value={skills}
                 onChange={handleSkillsChange as any}
                 allowCreate={true}
-                placeholder="Type to add skills..."
+                placeholder="输入以添加技能..."
               />
             </div>
             <Button type="submit" variant="primary" disabled={skills.length === 0}>
@@ -519,7 +519,7 @@ export const LongLabels: Story = {
 
     return (
       <div className="w-96">
-        <TagAutocomplete options={longOptions} value={value} onChange={setValue as any} placeholder="Select tags..." />
+        <TagAutocomplete options={longOptions} value={value} onChange={setValue as any} placeholder="选择标签..." />
       </div>
     );
   },
@@ -544,7 +544,7 @@ export const ManyOptions: Story = {
           options={manyOptions}
           value={value}
           onChange={setValue as any}
-          placeholder="Search 50 options..."
+          placeholder="搜索 50 个选项..."
         />
         <Typography variant="body" size="small" className="mt-tight text-neutral-content-subtle">
           50 options available - use search to filter
@@ -576,7 +576,7 @@ export const CustomFilter: Story = {
           value={value}
           onChange={setValue as any}
           searchFilter={startsWithFilter}
-          placeholder="Custom filter: matches start only (type 'f' for Frontend)..."
+          placeholder="自定义筛选：仅匹配开头（输入 f 可匹配 Frontend）..."
         />
       </div>
     );
@@ -598,7 +598,7 @@ export const CustomMinSearchLength: Story = {
           value={value}
           onChange={setValue as any}
           minSearchLength={3}
-          placeholder="Minimum 3 character to search..."
+          placeholder="至少输入 3 个字符进行搜索..."
         />
         <Typography variant="body" size="small" className="mt-base text-neutral-content-subtle">
           <strong>Available:</strong> {sampleTags.map((tag) => tag.label).join(", ")}
@@ -626,7 +626,7 @@ export const PasteWithCreation: Story = {
           value={value}
           onChange={setValue as any}
           allowCreate={true}
-          placeholder="Paste comma-separated values to create tags..."
+          placeholder="粘贴逗号分隔的值来创建标签..."
         />
         <div className="p-base bg-neutral-surface rounded-md space-y-tight">
           <Typography variant="body" size="small" className="font-medium">
@@ -672,7 +672,7 @@ export const PasteBlocked: Story = {
           onChange={setValue as any}
           allowCreate={false}
           minSearchLength={0}
-          placeholder="Search and select tags..."
+          placeholder="搜索并选择标签..."
         />
         <div className="p-base bg-neutral-surface rounded-md space-y-tight">
           <Typography variant="body" size="small" className="font-medium">

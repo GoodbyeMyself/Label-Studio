@@ -32,31 +32,31 @@ export const Default: Story = {
   render: (args) => (
     <Tabs {...args}>
       <TabsList>
-        <TabsTrigger value="tab1">Account</TabsTrigger>
-        <TabsTrigger value="tab2">Password</TabsTrigger>
-        <TabsTrigger value="tab3">Settings</TabsTrigger>
+        <TabsTrigger value="tab1">账户</TabsTrigger>
+        <TabsTrigger value="tab2">密码</TabsTrigger>
+        <TabsTrigger value="tab3">设置</TabsTrigger>
       </TabsList>
       <TabsContent value="tab1">
         <div className="p-wide border border-neutral-border rounded-smaller">
-          <h3 className="text-heading-regular font-semibold mb-tight">Account Settings</h3>
+          <h3 className="text-heading-regular font-semibold mb-tight">账户设置</h3>
           <p className="text-body-regular text-neutral-content-subtle">
-            Manage your account settings and set email preferences.
+            管理账户设置并配置邮件偏好。
           </p>
         </div>
       </TabsContent>
       <TabsContent value="tab2">
         <div className="p-wide border border-neutral-border rounded-smaller">
-          <h3 className="text-heading-regular font-semibold mb-tight">Password</h3>
+          <h3 className="text-heading-regular font-semibold mb-tight">密码</h3>
           <p className="text-body-regular text-neutral-content-subtle">
-            Change your password here. After saving, you'll be logged out.
+            在这里修改密码。保存后你将退出登录。
           </p>
         </div>
       </TabsContent>
       <TabsContent value="tab3">
         <div className="p-wide border border-neutral-border rounded-smaller">
-          <h3 className="text-heading-regular font-semibold mb-tight">Settings</h3>
+          <h3 className="text-heading-regular font-semibold mb-tight">设置</h3>
           <p className="text-body-regular text-neutral-content-subtle">
-            Configure your application preferences and notifications.
+            配置应用偏好和通知设置。
           </p>
         </div>
       </TabsContent>
@@ -77,22 +77,22 @@ export const Flat: Story = {
   render: (args) => (
     <Tabs {...args}>
       <TabsList>
-        <TabsTrigger value="existing">Add Existing Members</TabsTrigger>
-        <TabsTrigger value="invite">Invite Members</TabsTrigger>
+        <TabsTrigger value="existing">添加现有成员</TabsTrigger>
+        <TabsTrigger value="invite">邀请成员</TabsTrigger>
       </TabsList>
       <TabsContent value="existing">
         <div className="p-wide border border-neutral-border rounded-smaller">
-          <h3 className="text-heading-regular font-semibold mb-tight">Add Existing Members</h3>
+          <h3 className="text-heading-regular font-semibold mb-tight">添加现有成员</h3>
           <p className="text-body-regular text-neutral-content-subtle">
-            Select members from the organization to add to this project.
+            从组织中选择成员并添加到该项目。
           </p>
         </div>
       </TabsContent>
       <TabsContent value="invite">
         <div className="p-wide border border-neutral-border rounded-smaller">
-          <h3 className="text-heading-regular font-semibold mb-tight">Invite Members</h3>
+          <h3 className="text-heading-regular font-semibold mb-tight">邀请成员</h3>
           <p className="text-body-regular text-neutral-content-subtle">
-            Send email invitations to new members to join this project.
+            发送邮件邀请新成员加入该项目。
           </p>
         </div>
       </TabsContent>
@@ -116,37 +116,37 @@ export const CustomStyling: Story = {
             value="custom1"
             className="text-heading-regular font-bold uppercase tracking-wide data-[state=active]:border-b-4 data-[state=active]:border-success data-[state=active]:text-success"
           >
-            Dashboard
+            仪表盘
           </TabsTrigger>
           <TabsTrigger
             value="custom2"
             className="text-heading-regular font-bold uppercase tracking-wide data-[state=active]:border-b-4 data-[state=active]:border-success data-[state=active]:text-success"
           >
-            Analytics
+            分析
           </TabsTrigger>
           <TabsTrigger
             value="custom3"
             className="text-heading-regular font-bold uppercase tracking-wide data-[state=active]:border-b-4 data-[state=active]:border-success data-[state=active]:text-success"
           >
-            Reports
+            报表
           </TabsTrigger>
         </TabsList>
         <TabsContent value="custom1" className="mt-widest p-wider bg-success-surface rounded-small">
-          <h3 className="text-heading-large font-bold text-success mb-tight">Dashboard Overview</h3>
+          <h3 className="text-heading-large font-bold text-success mb-tight">仪表盘概览</h3>
           <p className="text-body-large text-neutral-content">
-            This example shows how you can customize tabs with different colors, borders, spacing, and typography.
+            该示例展示如何通过颜色、边框、间距和字体来自定义标签页样式。
           </p>
         </TabsContent>
         <TabsContent value="custom2" className="mt-widest p-wider bg-success-surface rounded-small">
-          <h3 className="text-heading-large font-bold text-success mb-tight">Analytics Data</h3>
+          <h3 className="text-heading-large font-bold text-success mb-tight">分析数据</h3>
           <p className="text-body-large text-neutral-content">
-            Custom green theme with bold typography and larger spacing demonstrates the flexibility of the component.
+            自定义绿色主题、加粗字体和更大间距，展示组件的灵活性。
           </p>
         </TabsContent>
         <TabsContent value="custom3" className="mt-widest p-wider bg-success-surface rounded-small">
-          <h3 className="text-heading-large font-bold text-success mb-tight">Detailed Reports</h3>
+          <h3 className="text-heading-large font-bold text-success mb-tight">详细报表</h3>
           <p className="text-body-large text-neutral-content">
-            You can override any aspect of the tabs styling to match your specific design requirements.
+            你可以覆盖标签页的任意样式，以满足具体设计需求。
           </p>
         </TabsContent>
       </Tabs>

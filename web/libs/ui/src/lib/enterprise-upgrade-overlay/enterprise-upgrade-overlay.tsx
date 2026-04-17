@@ -120,7 +120,7 @@ export const EnterpriseUpgradeOverlay = forwardRef<HTMLDivElement, EnterpriseUpg
               variant="neutral"
               size="small"
               onClick={onClose}
-              aria-label="Close"
+              aria-label="关闭"
             >
               <IconClose />
             </Button>

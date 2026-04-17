@@ -267,26 +267,26 @@ export const DataManagerImport: Story = {
     size: "large",
     variant: "primary",
     icon: <IconUpload />,
-    title: "Import data to get your project started",
-    description: "Connect your cloud storage or upload files from your computer",
+    title: "导入数据以开始你的项目",
+    description: "连接云存储或从本地上传文件",
     additionalContent: (
       <div className="flex items-center justify-center gap-base">
-        <Tooltip title="Amazon S3">
+        <Tooltip title="Amazon S3 存储">
           <div className="flex items-center justify-center p-2">
             <IconCloudProviderS3 width={32} height={32} className="text-neutral-content-subtler" />
           </div>
         </Tooltip>
-        <Tooltip title="Google Cloud Storage">
+        <Tooltip title="Google Cloud Storage 存储">
           <div className="flex items-center justify-center p-2">
             <IconCloudProviderGCS width={32} height={32} className="text-neutral-content-subtler" />
           </div>
         </Tooltip>
-        <Tooltip title="Azure Blob Storage">
+        <Tooltip title="Azure Blob Storage 存储">
           <div className="flex items-center justify-center p-2">
             <IconCloudProviderAzure width={32} height={32} className="text-neutral-content-subtler" />
           </div>
         </Tooltip>
-        <Tooltip title="Redis Storage">
+        <Tooltip title="Redis 存储">
           <div className="flex items-center justify-center p-2">
             <IconCloudProviderRedis width={32} height={32} className="text-neutral-content-subtler" />
           </div>
@@ -296,17 +296,17 @@ export const DataManagerImport: Story = {
     actions: (
       <>
         <Button variant="primary" look="filled" className="flex-1">
-          Connect Cloud Storage
+          连接云存储
         </Button>
         <Button variant="primary" look="outlined" className="flex-1">
-          Import
+          导入
         </Button>
       </>
     ),
     footer: (
       <Typography variant="label" size="small" className="text-primary-link hover:underline">
         <a href="/docs/import-data" className="inline-flex items-center gap-1">
-          See docs on importing data
+          查看数据导入文档
           <IconExternal width={20} height={20} />
         </a>
       </Typography>
@@ -319,11 +319,11 @@ export const AnnotatorLabelingState: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconLsLabeling />,
-    title: "Start labeling tasks",
-    description: "Begin labeling to track your progress here",
+    title: "开始标注任务",
+    description: "开始标注后可在此追踪进度",
     actions: (
       <Button variant="primary" look="filled">
-        Label All Tasks
+        标注全部任务
       </Button>
     ),
   },
@@ -334,8 +334,8 @@ export const ReviewerEmptyState: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconLsReview />,
-    title: "Begin reviewing tasks",
-    description: "Import tasks to this project to start reviewing",
+    title: "开始审核任务",
+    description: "将任务导入该项目后即可开始审核",
   },
 };
 
@@ -344,11 +344,11 @@ export const NoResultsFound: Story = {
     size: "medium",
     variant: "warning",
     icon: <IconSearch />,
-    title: "Refine your search",
-    description: "Adjust or clear your filters to see more results",
+    title: "优化你的搜索条件",
+    description: "调整或清空筛选条件以查看更多结果",
     actions: (
       <Button variant="primary" look="outlined">
-        Clear Filters
+        清空筛选
       </Button>
     ),
   },
@@ -359,8 +359,8 @@ export const AssignedTasksEmpty: Story = {
     size: "medium",
     variant: "neutral",
     icon: <IconInbox />,
-    title: "Wait for task assignment",
-    description: "Check back here when tasks get assigned to you",
+    title: "等待任务分配",
+    description: "任务分配给你后请回到这里查看",
   },
 };
 
@@ -369,11 +369,11 @@ export const LabelingQueueComplete: Story = {
     size: "medium",
     variant: "positive",
     icon: <IconCheck />,
-    title: "You're all caught up!",
-    description: "All tasks in the queue have been completed",
+    title: "你已全部处理完毕！",
+    description: "队列中的任务已全部完成",
     actions: (
       <Button variant="primary" look="outlined">
-        Go to Previous Task
+        返回上一任务
       </Button>
     ),
   },
@@ -385,17 +385,17 @@ export const ComplexContent: Story = {
     size: "large",
     variant: "primary",
     icon: <IconUpload />,
-    title: "Upload your files",
-    description: "Choose from multiple upload options and formats to get started",
+    title: "上传你的文件",
+    description: "可选择多种上传方式和格式开始使用",
     additionalContent: (
       <div className="text-center">
         <Typography variant="label" size="small" className="text-neutral-content-subtler mb-2">
-          Supported formats: CSV, JSON, TSV, TXT
+          支持格式：CSV、JSON、TSV、TXT
         </Typography>
         <div className="flex justify-center items-center gap-2 text-neutral-content-subtler">
           <div className="w-2 h-2 bg-positive-icon rounded-full" />
           <Typography variant="label" size="smallest">
-            Drag and drop enabled
+            支持拖拽上传
           </Typography>
         </div>
       </div>
@@ -403,13 +403,13 @@ export const ComplexContent: Story = {
     actions: (
       <>
         <Button variant="primary" look="filled" className="flex-1">
-          Browse Files
+          浏览文件
         </Button>
         <Button variant="primary" look="outlined" className="flex-1">
-          Connect Storage
+          连接存储
         </Button>
         <Button variant="neutral" look="outlined">
-          Import From URL
+          通过 URL 导入
         </Button>
       </>
     ),
@@ -417,11 +417,11 @@ export const ComplexContent: Story = {
       <div className="text-center space-y-1">
         <Typography variant="label" size="small" className="text-primary-link">
           <a href="/docs/import-guide" className="hover:underline">
-            Need help? View our import guide
+            需要帮助？查看导入指南
           </a>
         </Typography>
         <Typography variant="label" size="smallest" className="text-neutral-content-subtler">
-          Maximum file size: 100MB per file
+          最大文件大小：每个文件 100MB
         </Typography>
       </div>
     ),
@@ -434,15 +434,15 @@ export const WithAccessibility: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconInbox />,
-    title: "Build your collection",
-    description: "Start adding items to create your first collection",
+    title: "创建你的集合",
+    description: "添加条目以创建你的第一个集合",
     titleId: "accessible-empty-title",
     descriptionId: "accessible-empty-desc",
-    "aria-label": "Add items to build your collection",
+    "aria-label": "添加条目以创建集合",
     "data-testid": "accessible-empty-state",
     actions: (
       <Button variant="primary" look="filled">
-        Add First Item
+        添加第一个条目
       </Button>
     ),
   },
@@ -454,11 +454,11 @@ export const RelationsPanel: Story = {
     size: "small",
     variant: "primary",
     icon: <IconRelationLink />,
-    title: "Create relations between labels",
-    description: "Add relations to establish connections between labeled regions",
+    title: "在标签之间创建关系",
+    description: "添加关系以建立标注区域之间的连接",
     actions: (
       <Button variant="primary" look="outlined" size="small">
-        Add Relation
+        添加关系
       </Button>
     ),
   },

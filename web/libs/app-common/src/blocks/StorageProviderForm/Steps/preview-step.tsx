@@ -87,7 +87,7 @@ export const PreviewStep = ({
                       handleChange(e);
                       onImportSettingsChange?.();
                     }}
-                    placeholder="path/to/files/，留空则表示根目录"
+                    placeholder="路径示例：path/to/files/，留空则表示根目录"
                     style={{ width: "100%" }}
                     required={false}
                     skip={false}
@@ -105,7 +105,7 @@ export const PreviewStep = ({
                   name="use_blob_urls"
                   value={formData.use_blob_urls ? "Files" : "Tasks"}
                   onChange={(value) => {
-                    const isFiles = value === "Files";
+                    const isFiles = value === "文件";
                     setFormState((prevState) => ({
                       ...prevState,
                       formData: {
@@ -119,11 +119,11 @@ export const PreviewStep = ({
                   options={
                     [
                       {
-                        value: "Files",
+                        value: "文件",
                         label: "文件：为每个存储对象自动创建一个任务（例如 JPG、MP3、TXT）",
                       },
                       {
-                        value: "Tasks",
+                        value: "任务",
                         label: "任务：将每个 JSON、JSONL 或 Parquet 文件视为一个或多个任务定义",
                       },
                     ] as any

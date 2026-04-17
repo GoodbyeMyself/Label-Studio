@@ -308,7 +308,7 @@ const TokenCatalog = () => {
       <div className="mb-6">
         <input
           type="text"
-          placeholder="Search tokens by name or value..."
+          placeholder="按名称或值搜索令牌..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="p-2 rounded border border-neutral-border bg-neutral-background text-neutral-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-focus-outline w-full text-sm mb-4"
@@ -327,7 +327,7 @@ const TokenCatalog = () => {
                 : "bg-neutral-surface border-neutral-border"
             }`}
           >
-            All Categories
+            全部分类
           </button>
           {Object.keys(categoryDescriptions).map((category) => (
             <button
@@ -361,7 +361,7 @@ const TokenCatalog = () => {
                   : "bg-neutral-surface border-neutral-border"
               }`}
             >
-              All Colors
+              全部颜色
             </button>
             {Object.keys(colorSubcategoryDescriptions).map((subcategory) => (
               <button
@@ -385,7 +385,7 @@ const TokenCatalog = () => {
 
       {/* Display the tokens */}
       {Object.keys(groupedTokens).length === 0 ? (
-        <div className="text-center my-10 text-neutral-content-subtler">No tokens found matching "{searchTerm}"</div>
+        <div className="text-center my-10 text-neutral-content-subtler">未找到匹配“{searchTerm}”的令牌</div>
       ) : (
         Object.entries(groupedTokens).map(([category, tokens]) => (
           <div key={category} className="category-section mb-10">

@@ -160,7 +160,7 @@ export const Pagination: FC<PaginationProps> = ({
   const pageSizeSelectOptions = useMemo(() => {
     return pageSizeOptions.map((size) => ({
       value: size,
-      label: `${size} per page`,
+      label: `每页 ${size} 条`,
     }));
   }, [pageSizeOptions]);
 
@@ -199,7 +199,7 @@ export const Pagination: FC<PaginationProps> = ({
               className={cn(styles.button, styles["button-first"], currentPage === 1 && styles.disabled)}
               onClick={handleFirstPage}
               disabled={disabled || currentPage === 1}
-              aria-label="First page"
+              aria-label="第一页"
             >
               <IconRewind width={24} height={24} />
             </Button>
@@ -212,7 +212,7 @@ export const Pagination: FC<PaginationProps> = ({
           className={cn(styles.button, styles["button-prev"], currentPage === 1 && styles.disabled)}
           onClick={handlePreviousPage}
           disabled={disabled || currentPage === 1}
-          aria-label="Previous page"
+          aria-label="上一页"
         >
           <IconChevronLeft width={24} height={24} />
         </Button>
@@ -220,6 +220,7 @@ export const Pagination: FC<PaginationProps> = ({
           {inputMode ? (
             <input
               type="text"
+              aria-label="输入页码"
               autoFocus
               defaultValue={currentPage}
               pattern="[0-9]"
@@ -254,7 +255,7 @@ export const Pagination: FC<PaginationProps> = ({
                 if (allowInput && !disabled) setInputMode(true);
               }}
             >
-              {currentPage} <span>of {displayTotalPages}</span>
+              {currentPage} <span>/ {displayTotalPages}</span>
             </div>
           )}
         </div>
@@ -264,7 +265,7 @@ export const Pagination: FC<PaginationProps> = ({
           className={cn(styles.button, styles["button-next"], currentPage >= displayTotalPages && styles.disabled)}
           onClick={handleNextPage}
           disabled={disabled || currentPage >= displayTotalPages}
-          aria-label="Next page"
+          aria-label="下一页"
         >
           <IconChevronRight />
         </Button>
@@ -277,7 +278,7 @@ export const Pagination: FC<PaginationProps> = ({
               className={cn(styles.button, styles["button-last"], currentPage >= displayTotalPages && styles.disabled)}
               onClick={handleLastPage}
               disabled={disabled || currentPage >= displayTotalPages}
-              aria-label="Last page"
+              aria-label="最后一页"
             >
               <IconFastForward />
             </Button>

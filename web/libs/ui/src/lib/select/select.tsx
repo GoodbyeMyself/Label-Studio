@@ -119,7 +119,7 @@ const SelectedItemsGroup = ({
           className={styles.selectedItemsToggle}
           onClick={hasNoItems ? undefined : onToggleExpand}
           aria-expanded={expanded}
-          aria-label={`Selected items group, ${selectedOptions.length} items selected`}
+          aria-label={`已选分组，当前已选择 ${selectedOptions.length} 项`}
           disabled={hasNoItems}
           style={{ cursor: hasNoItems ? "default" : "pointer" }}
         >
@@ -141,12 +141,12 @@ const SelectedItemsGroup = ({
             readOnly
             disabled={disabled || selectedOptions.length === 0}
             onClick={handleDeselectAllClick}
-            aria-label="Deselect all items"
+            aria-label="取消选择全部项目"
           />
 
           {/* Title with counter badge inline */}
           <div className={styles.selectedItemsTitle}>
-            <Typography variant="body">Selected items</Typography>
+            <Typography variant="body">已选项目</Typography>
             <Badge>{selectedOptions.length}</Badge>
           </div>
         </button>
@@ -157,11 +157,11 @@ const SelectedItemsGroup = ({
             type="button"
             onClick={handleSelectAllClick}
             disabled={disabled}
-            aria-label="Select all rendered items"
+            aria-label="选择当前渲染的全部项目"
             look="string"
             size="smaller"
           >
-            Select All
+            全选
           </Button>
         )}
       </div>
@@ -190,7 +190,7 @@ const SelectedItemsGroup = ({
               })}
             </CommandGroup>
           ) : (
-            <div className="px-base py-tight text-neutral-content-subtler text-center">No items selected</div>
+            <div className="px-base py-tight text-neutral-content-subtler text-center">暂无已选项目</div>
           )}
         </div>
       )}
@@ -627,13 +627,13 @@ export const Select = forwardRef(
         <PopoverContent align="start" data-testid="select-popup" className={cnm("min-w-full", contentClassName)}>
           {isLoading ? (
             <span className={styles.selectLoading} tabIndex={-1}>
-              Loading...
+              加载中...
             </span>
           ) : (
             <Command shouldFilter={false}>
               {searchable && (
                 <CommandInput
-                  placeholder={searchPlaceholder ?? "Search"}
+                  placeholder={searchPlaceholder ?? "搜索"}
                   value={query}
                   onChangeCapture={onSearchInputHandler}
                   data-testid="select-search-field"
@@ -641,7 +641,7 @@ export const Select = forwardRef(
                 />
               )}
               <CommandList
-                label="Select an option"
+                label="请选择一个选项"
                 className={cnm({
                   "shadow-inner shadow-neutral-surface-inset border-t border-neutral-border shadow-": searchable,
                   "max-h-none": footer !== undefined || isVirtualList,
@@ -665,7 +665,7 @@ export const Select = forwardRef(
                   />
                 )}
 
-                <CommandEmpty>{searchable ? "No results found." : ""}</CommandEmpty>
+                <CommandEmpty>{searchable ? "未找到匹配结果。" : ""}</CommandEmpty>
 
                 <CommandGroup>
                   {props.header ? props.header : null}

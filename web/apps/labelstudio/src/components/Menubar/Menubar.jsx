@@ -233,14 +233,14 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                 <VersionNotifier showNewVersion />
 
                 <Menu.Item
-                  label="API"
+                  label="API 参考"
                   href="https://api.labelstud.io/api-reference/introduction/getting-started"
                   icon={<IconTerminal />}
                   target="_blank"
                 />
                 <Menu.Item label="文档" href="https://labelstud.io/guide" icon={<IconBook />} target="_blank" />
                 <Menu.Item
-                  label="GitHub"
+                  label="GitHub 仓库"
                   href="https://github.com/HumanSignal/label-studio"
                   icon={<IconGithub />}
                   target="_blank"

@@ -15,27 +15,27 @@ type Story = StoryObj<typeof Popover>;
 
 export const Default: Story = {
   args: {
-    trigger: <Button>Click me</Button>,
-    children: <div className="p-4">Popover content</div>,
+    trigger: <Button>点我</Button>,
+    children: <div className="p-4">气泡内容</div>,
   },
 };
 
 export const WithForm: Story = {
   args: {
-    trigger: <Button>Open Form</Button>,
+    trigger: <Button>打开表单</Button>,
     children: (
       <div className="p-4 w-80">
-        <h4 className="mb-4 font-medium">Settings</h4>
+        <h4 className="mb-4 font-medium">设置</h4>
         <div className="space-y-4">
           <div>
-            <label className="text-sm font-medium">Name</label>
-            <input type="text" className="w-full mt-1 px-3 py-2 border rounded-md" placeholder="Enter your name" />
+            <label className="text-sm font-medium">姓名</label>
+            <input type="text" className="w-full mt-1 px-3 py-2 border rounded-md" placeholder="请输入你的姓名" />
           </div>
           <div>
-            <label className="text-sm font-medium">Email</label>
-            <input type="email" className="w-full mt-1 px-3 py-2 border rounded-md" placeholder="Enter your email" />
+            <label className="text-sm font-medium">邮箱</label>
+            <input type="email" className="w-full mt-1 px-3 py-2 border rounded-md" placeholder="请输入你的邮箱" />
           </div>
-          <Button className="w-full">Save</Button>
+          <Button className="w-full">保存</Button>
         </div>
       </div>
     ),
@@ -44,23 +44,23 @@ export const WithForm: Story = {
 
 export const WithList: Story = {
   args: {
-    trigger: <Button>View Options</Button>,
+    trigger: <Button>查看选项</Button>,
     children: (
       <div className="p-2 w-48">
         <ul className="space-y-1">
           <li>
             <span className="block w-full px-2 py-1.5 text-left hover:bg-accent rounded-sm cursor-pointer">
-              Option 1
+              选项 1
             </span>
           </li>
           <li>
             <span className="block w-full px-2 py-1.5 text-left hover:bg-accent rounded-sm cursor-pointer">
-              Option 2
+              选项 2
             </span>
           </li>
           <li>
             <span className="block w-full px-2 py-1.5 text-left hover:bg-accent rounded-sm cursor-pointer">
-              Option 3
+              选项 3
             </span>
           </li>
         </ul>
@@ -71,12 +71,12 @@ export const WithList: Story = {
 
 export const WithCustomAlignment: Story = {
   args: {
-    trigger: <Button>Custom Alignment</Button>,
+    trigger: <Button>自定义对齐</Button>,
     align: "start",
     sideOffset: 8,
     children: (
       <div className="p-4">
-        <p>This popover is aligned to the start and has a larger offset.</p>
+        <p>该气泡按起始位置对齐，并使用更大的偏移量。</p>
       </div>
     ),
   },

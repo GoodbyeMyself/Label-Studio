@@ -348,7 +348,7 @@ describe("Select Component", () => {
       fireEvent.click(screen.getByRole("button"));
 
       await waitFor(() => {
-        expect(screen.getByText("No results found.")).toBeInTheDocument();
+        expect(screen.getByText("未找到匹配结果。")).toBeInTheDocument();
       });
     });
 
@@ -386,7 +386,7 @@ describe("Select Component", () => {
       fireEvent.click(screen.getByText("Apple"));
       fireEvent.click(screen.getByText("Banana"));
       await waitFor(() => {
-        expect(screen.getByText("Selected items")).toBeInTheDocument();
+        expect(screen.getByText("已选项目")).toBeInTheDocument();
         expect(screen.getByText("2")).toBeInTheDocument(); // badge count
       });
     });
@@ -407,8 +407,8 @@ describe("Select Component", () => {
       await waitFor(() => expect(screen.getByText("Apple")).toBeInTheDocument());
       fireEvent.click(screen.getByText("Apple"));
       fireEvent.click(screen.getByText("Banana"));
-      await waitFor(() => expect(screen.getByText("Selected items")).toBeInTheDocument());
-      const header = screen.getByRole("button", { name: /Selected items group/i });
+      await waitFor(() => expect(screen.getByText("已选项目")).toBeInTheDocument());
+      const header = screen.getByRole("button", { name: /已选分组/i });
       fireEvent.click(header);
       await waitFor(() => expect(screen.getAllByTestId("select-option-Apple").length).toBeGreaterThan(0));
       const appleOptions = screen.getAllByTestId("select-option-Apple");
@@ -416,7 +416,7 @@ describe("Select Component", () => {
       expect(onChange).toHaveBeenCalled();
     });
 
-    it("shows Selected items group with 0 when alwaysShowSelectedGroup and none selected", async () => {
+    it("shows selected group with 0 when alwaysShowSelectedGroup and none selected", async () => {
       render(
         <Select
           options={["Apple", "Banana"] as any}
@@ -428,9 +428,9 @@ describe("Select Component", () => {
         />,
       );
       fireEvent.click(screen.getByRole("button"));
-      await waitFor(() => expect(screen.getByText("Selected items")).toBeInTheDocument());
+      await waitFor(() => expect(screen.getByText("已选项目")).toBeInTheDocument());
       expect(screen.getByText("0")).toBeInTheDocument();
-      const header = screen.getByRole("button", { name: /Selected items group/i });
+      const header = screen.getByRole("button", { name: /已选分组/i });
       expect(header).toBeDisabled();
     });
   });
@@ -510,7 +510,7 @@ describe("Select Component", () => {
     it("shows Loading when isLoading", async () => {
       render(<Select options={["A", "B"] as any} placeholder="Select" isLoading={true} />);
       fireEvent.click(screen.getByRole("button"));
-      await waitFor(() => expect(screen.getByText("Loading...")).toBeInTheDocument());
+      await waitFor(() => expect(screen.getByText("加载中...")).toBeInTheDocument());
     });
 
     it("applies data-testid from props when provided", () => {
@@ -598,7 +598,7 @@ describe("Select Component", () => {
       await waitFor(() => expect(screen.getByText("Apple")).toBeInTheDocument());
       fireEvent.click(screen.getByText("Apple"));
       fireEvent.click(screen.getByText("Banana"));
-      await waitFor(() => expect(screen.getByText("Selected items")).toBeInTheDocument());
+      await waitFor(() => expect(screen.getByText("已选项目")).toBeInTheDocument());
       const checkboxes = screen.getAllByRole("checkbox");
       const deselectAllCheckbox = checkboxes[0];
       fireEvent.click(deselectAllCheckbox);
@@ -621,8 +621,8 @@ describe("Select Component", () => {
       await waitFor(() => expect(screen.getByText("Apple")).toBeInTheDocument());
       fireEvent.click(screen.getByText("Apple"));
       fireEvent.click(screen.getByText("Banana"));
-      await waitFor(() => expect(screen.getByText("Selected items")).toBeInTheDocument());
-      fireEvent.click(screen.getByRole("button", { name: /Selected items group/i }));
+      await waitFor(() => expect(screen.getByText("已选项目")).toBeInTheDocument());
+      fireEvent.click(screen.getByRole("button", { name: /已选分组/i }));
       await waitFor(() => expect(screen.getAllByTestId("select-option-Apple").length).toBeGreaterThan(0));
       const appleOptions = screen.getAllByTestId("select-option-Apple");
       fireEvent.click(appleOptions[0]);

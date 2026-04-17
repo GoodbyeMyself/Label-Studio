@@ -29,7 +29,7 @@ const IconDot = ({ size }) => {
 const ToolView = observer(({ item }) => {
   return (
     <Tool
-      label="Bitmask"
+      label="位图蒙版"
       ariaLabel="bitmask-tool"
       active={item.selected}
       shortcut={item.shortcut}
@@ -90,13 +90,13 @@ const _Tool = types
     get extraShortcuts() {
       return {
         "tool:decrease-tool": [
-          "Decrease size",
+          "减小画笔大小",
           () => {
             self.setStroke(clamp(self.strokeWidth - 5, MIN_SIZE, MAX_SIZE));
           },
         ],
         "tool:increase-tool": [
-          "Increase size",
+          "增大画笔大小",
           () => {
             self.setStroke(clamp(self.strokeWidth + 5, MIN_SIZE, MAX_SIZE));
           },

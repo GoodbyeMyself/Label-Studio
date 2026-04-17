@@ -178,7 +178,7 @@ export const TagAutocomplete = forwardRef(
             onKeyDown={handleKeyDown}
             data-testid={`tag-${option.value}`}
             data-tag="true"
-            aria-label={`${option.label}, press Delete or Backspace to remove`}
+            aria-label={`${option.label}，按 Delete 或 Backspace 可移除`}
           >
             {option.label}
           </Badge>
@@ -279,7 +279,7 @@ export const TagAutocomplete = forwardRef(
                 focusInput();
               }}
             >
-              <div ref={tagsContainerRef} className={styles.tagsContainer} aria-label="Selected tags">
+              <div ref={tagsContainerRef} className={styles.tagsContainer} aria-label="已选标签">
                 {selectedOptions.map((option, index) => renderTagItem(option, index))}
 
                 <input
@@ -295,7 +295,7 @@ export const TagAutocomplete = forwardRef(
                   }}
                   disabled={disabled}
                   placeholder={placeholder}
-                  aria-label={placeholder || "Search tags"}
+                  aria-label={placeholder || "搜索标签"}
                   aria-autocomplete="list"
                   aria-expanded={isOpen}
                   aria-controls="tag-autocomplete-listbox"
@@ -325,7 +325,7 @@ export const TagAutocomplete = forwardRef(
               id="tag-autocomplete-listbox"
               // biome-ignore lint/a11y/useSemanticElements: This is a combobox pattern, not a traditional select
               role="listbox"
-              aria-label="Available options"
+              aria-label="可选项"
               className="bg-neutral-background rounded-md"
             >
               {isLoading ? (
@@ -334,7 +334,7 @@ export const TagAutocomplete = forwardRef(
                 </div>
               ) : (
                 <>
-                  {filteredOptions.length === 0 && !showCreateOption && <CommandEmpty>No options found.</CommandEmpty>}
+                  {filteredOptions.length === 0 && !showCreateOption && <CommandEmpty>未找到可选项。</CommandEmpty>}
 
                   <CommandGroup>{filteredOptions.map((option, index) => renderOptionItem(option, index))}</CommandGroup>
 
@@ -357,9 +357,9 @@ export const TagAutocomplete = forwardRef(
                       <div className="flex items-center gap-2 w-full px-4 py-1 hover:bg-primary-emphasis-subtle hover:cursor-pointer group-focus-within:bg-primary-emphasis-subtle group-aria-selected:bg-primary-emphasis-subtle rounded-4 duration-150 ease-out">
                         <IconPlus className={styles.createIcon} />
                         <span>
-                          Add "
-                          <strong className="inline-block max-w-[200px] truncate align-bottom">{query.trim()}</strong>"
-                          tag
+                          添加标签 "
+                          <strong className="inline-block max-w-[200px] truncate align-bottom">{query.trim()}</strong>
+                          "
                         </span>
                       </div>
                     </CommandItem>

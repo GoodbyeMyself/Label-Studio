@@ -24,21 +24,21 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    children: "Default Button",
+    children: "默认按钮",
     className: "w-[200px]",
   },
 };
 
 export const WithDisabledState: Story = {
   args: {
-    children: "Disabled Button",
+    children: "禁用按钮",
     disabled: true,
   },
 };
 
 export const WithWaitingState: Story = {
   args: {
-    children: "Waiting Button",
+    children: "等待中按钮",
     waiting: true,
   },
 };
@@ -48,16 +48,16 @@ export const WithAlignment: Story = {
     return (
       <div className="flex items-center gap-tight">
         <Button {...props} className="w-48" leading={<IconAnnotationGroundTruth />}>
-          Default
+          默认
         </Button>
         <Button {...props} className="w-48" align="left" leading={<IconAnnotationGroundTruth />}>
-          Left
+          左对齐
         </Button>
         <Button {...props} className="w-48" align="center" leading={<IconAnnotationGroundTruth />}>
-          Center
+          居中
         </Button>
         <Button {...props} className="w-48" align="right" leading={<IconAnnotationGroundTruth />}>
-          Right
+          右对齐
         </Button>
       </div>
     );
@@ -69,13 +69,13 @@ export const WithSize: Story = {
     return (
       <div className="flex items-center gap-tight">
         <Button {...props} size="medium" className="w-48" leading={<IconAnnotationGroundTruth />}>
-          Medium
+          中
         </Button>
         <Button {...props} size="small" className="w-48" leading={<IconAnnotationGroundTruth />}>
-          Small
+          小
         </Button>
         <Button {...props} size="smaller" className="w-48" leading={<IconAnnotationGroundTruth />}>
-          Smaller
+          更小
         </Button>
       </div>
     );
@@ -87,10 +87,10 @@ export const WithIcon: Story = {
     return (
       <div className="flex gap-tight">
         <Button {...props} className="w-48" leading={<IconAnnotationGroundTruth />}>
-          Leading
+          前置图标
         </Button>
         <Button {...props} className="w-48" trailing={<IconAnnotationGroundTruth />}>
-          Trailing
+          后置图标
         </Button>
         <Button
           {...props}
@@ -98,7 +98,7 @@ export const WithIcon: Story = {
           leading={<IconAnnotationGroundTruth />}
           trailing={<IconAnnotationGroundTruth />}
         >
-          Both
+          双侧图标
         </Button>
       </div>
     );
@@ -107,7 +107,7 @@ export const WithIcon: Story = {
 
 export const WideButton: Story = {
   args: {
-    children: "Wide button",
+    children: "宽按钮",
     align: "default",
   },
   render: ({ children, ...props }) => {
@@ -126,14 +126,14 @@ export const WideButton: Story = {
 
 export const WithComplexChildren: Story = {
   args: {
-    children: "Button with a",
+    children: "带有",
     align: "default",
   },
   render: ({ children, ...props }) => {
     return (
       <Button {...props} leading={<IconAnnotationGroundTruth />} trailing={<IconAnnotationGroundTruth />}>
         {children}
-        <span className="max-h-6 px-tight rounded-4 bg-primary-surface-hover">badge</span>
+        <span className="max-h-6 px-tight rounded-4 bg-primary-surface-hover">徽标</span>
       </Button>
     );
   },
@@ -141,7 +141,7 @@ export const WithComplexChildren: Story = {
 
 export const WithExtra: Story = {
   args: {
-    children: "Button with an",
+    children: "带有",
     align: "default",
   },
   render: ({ children, ...props }) => {
@@ -150,7 +150,7 @@ export const WithExtra: Story = {
         {...props}
         trailing={
           <>
-            <span className="max-h-6 px-tight rounded-4 bg-primary-surface-hover">extra badge</span>
+            <span className="max-h-6 px-tight rounded-4 bg-primary-surface-hover">额外徽标</span>
             <IconAnnotationGroundTruth />
           </>
         }
@@ -179,7 +179,7 @@ export const IconButton: Story = {
 
 export const StyledLink: Story = {
   args: {
-    children: "Link with button style",
+    children: "按钮样式链接",
   },
   render({ children, ...props }) {
     return (
@@ -193,7 +193,7 @@ export const StyledLink: Story = {
 
 export const WithSecondaryAction: Story = {
   args: {
-    children: "Link with button style",
+    children: "按钮样式链接",
   },
   render({ children, ...props }) {
     return (
@@ -214,8 +214,8 @@ export const WithTooltipAndDisabledState: Story = {
   render: ({ children, ...props }) => {
     return (
       <div className="flex items-center gap-tight">
-        <Button {...props} className="w-48" leading={<IconAnnotationGroundTruth />} disabled tooltip="Tooltip text">
-          With Tooltip
+        <Button {...props} className="w-48" leading={<IconAnnotationGroundTruth />} disabled tooltip="提示文本">
+          带提示
         </Button>
       </div>
     );
@@ -235,22 +235,22 @@ export const WithButtonGroup: Story = {
           </Typography>
           <ButtonGroup>
             <Button {...props} size="small" variant="primary" look="filled">
-              Label All Tasks
+              标注全部任务
             </Button>
             <Dropdown.Trigger
               alignment="bottom-right"
               content={
                 <Space direction="vertical" className="bg-neutral-background p-tight rounded">
                   <Button align="left" look="string" size="small">
-                    Label tasks as displayed
+                    标注当前显示任务
                   </Button>
                   <Button align="left" look="string" size="small">
-                    Skip all tasks
+                    跳过全部任务
                   </Button>
                 </Space>
               }
             >
-              <Button size="small" variant="primary" look="filled" aria-label="Toggle label options">
+              <Button size="small" variant="primary" look="filled" aria-label="切换标注选项">
                 <IconChevronDown />
               </Button>
             </Dropdown.Trigger>
@@ -266,10 +266,10 @@ export const WithButtonGroup: Story = {
           </Typography>
           <ButtonGroup collapsed={false}>
             <Button {...props} size="small" variant="primary" look="outlined">
-              Save
+              保存
             </Button>
             <Button {...props} size="small" variant="neutral" look="outlined">
-              Cancel
+              取消
             </Button>
           </ButtonGroup>
         </div>
@@ -284,7 +284,7 @@ export const WithButtonGroup: Story = {
           <div className="flex flex-wrap gap-comfortable">
             <ButtonGroup>
               <Button {...props} size="small" variant="neutral" look="outlined">
-                Previous
+                上一页
               </Button>
               <Button {...props} size="small" variant="neutral" look="outlined">
                 1
@@ -296,16 +296,16 @@ export const WithButtonGroup: Story = {
                 3
               </Button>
               <Button {...props} size="small" variant="neutral" look="outlined">
-                Next
+                下一页
               </Button>
             </ButtonGroup>
 
             <ButtonGroup>
               <Button {...props} size="small" variant="neutral" look="outlined" leading={<IconAnnotationGroundTruth />}>
-                Edit
+                编辑
               </Button>
               <Button {...props} size="small" variant="neutral" look="outlined" leading={<IconCrossAlt />}>
-                Delete
+                删除
               </Button>
             </ButtonGroup>
           </div>

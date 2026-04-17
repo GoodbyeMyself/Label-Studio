@@ -212,7 +212,7 @@ export const MultipleWithBadges: Story = {
             { value: "python", label: "Python" },
             { value: "django", label: "Django" },
           ]}
-          placeholder="Choose technologies..."
+          placeholder="选择技术栈..."
           renderSelected={(selectedOptions) => {
             if (!selectedOptions || selectedOptions?.length === 0) return null;
             return (
@@ -258,7 +258,7 @@ export const MultipleSelectWithVirtualListAndSearch: Story = {
     isVirtualList: true,
     value: ["tech-5", "tech-12", "tech-23", "tech-45", "tech-67"],
     options: techOptions as any[],
-    placeholder: "Select technologies...",
+    placeholder: "选择技术栈...",
     label: "Multiple Select with Selected Items Group",
   },
 };
@@ -269,9 +269,9 @@ export const MultipleSelectWithVirtualListAndSearch: Story = {
  */
 export const WithGroupBy: Story = {
   args: {
-    placeholder: "Select a column",
+    placeholder: "选择列",
     searchable: true,
-    searchPlaceholder: "Search columns",
+    searchPlaceholder: "搜索列",
     groupBy: "group",
     options: [
       { key: "id", title: "ID", value: "id" },
@@ -304,9 +304,9 @@ export const WithGroupByMultiple: Story = {
  */
 export const WithGroupByAndOptionRenderer: Story = {
   args: {
-    placeholder: "Select a column",
+    placeholder: "选择列",
     searchable: true,
-    searchPlaceholder: "Search columns",
+    searchPlaceholder: "搜索列",
     groupBy: "group",
     options: [
       { key: "summary", title: "summary", value: "summary", group: "Data", readableType: "TextArea" },
@@ -368,8 +368,8 @@ export const ControlledOpenWithFooterApply: Story = {
           open={isOpen}
           value={isOpen ? pending : applied}
           options={options as any[]}
-          placeholder="Select technologies..."
-          label="Controlled open + footer Apply"
+          placeholder="选择技术栈..."
+          label="受控打开 + 底部应用按钮"
           onOpen={() => {
             setPending(applied);
             setIsOpen(true);
@@ -385,11 +385,11 @@ export const ControlledOpenWithFooterApply: Story = {
               disabled={!hasChanges}
               onClick={handleApply}
             >
-              Apply
+              应用
             </Button>
           }
         />
-        <p className="text-sm text-neutral-content">Applied: {applied.length > 0 ? applied.join(", ") : "none"}</p>
+        <p className="text-sm text-neutral-content">已应用：{applied.length > 0 ? applied.join(", ") : "无"}</p>
       </div>
     );
   },
